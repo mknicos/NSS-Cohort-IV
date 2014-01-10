@@ -1,0 +1,141 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
+html {
+  font-family: "open sans", sans-serif;
+}
+
+div#main{
+  width: 1001px;
+  margin: 0px auto;
+}
+
+body {
+  background-image: url('/images/bg-sand.png');
+}
+
+h1 {
+  color: #c13832;
+  font-size: 84px;
+  text-align: center;
+  font-weight: 700i;
+  letter-spacing: -0.05em;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 65px;
+  letter-spacing: -0.025em;
+  font-weight: 300;
+  margin:0px;
+  text-align: center;
+}
+
+nav a {
+  text-decoration:none;
+  font-weight: normal;
+  padding: 12px;
+  color: #484848;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#navlogo {
+  background-color: white;
+  width:140px;
+  height:44px;
+  font-size: 28px;  
+  text-align: center;
+  border: 1px solid
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+nav ul {
+  float:right;
+}
+
+.clear {
+  clear:both;
+}
+
+#img1 {
+  background-color: grey;
+  background-image: url('/images/logo-lightbeam.png');
+  background-repeat: no-repeat;
+  width: 200px;
+  height:400px;
+  box-shadow:5px 5px 30px black;
+}
+
+#img2 {
+  background-color: blue;
+  background-image: url('/images/firefox.png');
+  background-repeat: no-repeat;
+  width: 200px;
+  height:400px;
+  box-shadow:5px 30px 80px black;
+}
+
+#img3 {
+  background-color: brown;
+  background-image: url('/images/bg-addons-en.png');
+  background-repeat: no-repeat;
+  width: 200px;
+  height:400px;
+  box-shadow:5px 30px 80px black;
+}
+
+#img4 {
+  background-color: silver;
+  background-image: url('/images/logo-webmaker.png');
+  background-repeat: no-repeat;
+  width: 200px;
+  height:400px;
+  box-shadow:5px 5px 30px black;
+}
+
+.imgacc li {
+  display: inline-block;
+}
+
+.accordian {
+  margin:none
+  width:1001px;
+}
+
+#logo {
+  background-color: white;
+  height:130px;
+  font-family: 'Open Sans','Droid Arabic Naskh',sans-serif;
+  color: #484848;
+  font-weight: normal;
+  margin-right: 10px;
+  padding-right: 20px;
+  font-size: 40px;
+  margin:0;
+  text-align: center;
+}
+
+#news {
+  background-color:#c1423d;
+  font-family: "Open Sans",sans-serif;
+  color:white;
+  height: 170px;
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+
+
+
+
+
