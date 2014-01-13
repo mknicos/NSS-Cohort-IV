@@ -6,11 +6,6 @@ html {
   font-family: "open sans", sans-serif;
 }
 
-div#main{
-  width: 1001px;
-  margin: 0px auto;
-}
-
 body {
   background-image: url('/images/bg-sand.png');
 }
@@ -19,7 +14,7 @@ h1 {
   color: #c13832;
   font-size: 84px;
   text-align: center;
-  font-weight: 700i;
+  font-weight: 700;
   letter-spacing: -0.05em;
   margin: 0px;
 }
@@ -61,6 +56,16 @@ nav li {
 
 nav ul {
   float:right;
+  position: relative;
+  top:5px;
+  left: -225px;
+}
+
+.accordian{
+  width:1000px;
+  margin:auto;
+  position: relative;
+  left: 50px;
 }
 
 .clear {
@@ -103,13 +108,19 @@ nav ul {
   box-shadow:5px 5px 30px black;
 }
 
+.imgacc ul {
+  margin: 200px;
+  padding-bottom: 40px;
+}
+
 .imgacc li {
   display: inline-block;
 }
 
-.accordian {
-  margin:none
-  width:1001px;
+#logopic {
+  position:relative;
+  top:10px;
+  left: -30px;
 }
 
 #logo {
@@ -124,6 +135,13 @@ nav ul {
   margin:0;
   text-align: center;
 }
+
+#diffby {
+  position:relative;
+  left:0px;
+  top: -20px;
+}
+
 
 #news {
   background-color:#c1423d;
