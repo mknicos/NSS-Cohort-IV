@@ -26,12 +26,12 @@ function countEvens(myArray){
 
 function makeEvenStringsUppercase(myArray){
   var newArray = [];
-  for (var i = 0; i < myArray.length; i++)
+  for (var i = 0; i < myArray.length; i++){
     if (myArray[i].length % 2 === 0)
-       newArray[i] = myArray[i].toUpperCase;
+       newArray[i] = myArray[i].toUpperCase();
     else
       newArray[i] = myArray[i];
-
+  } 
   return newArray;
 }
 
