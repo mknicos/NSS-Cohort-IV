@@ -25,6 +25,11 @@ function initialize(){
     
     var userDiv3 = prompt('What would you like Div3 to say?');
     $('#d3').text(userDiv3);
+
+
+   var numPs = $('.cp').length;
+   console.log(numPs);
+    
 }
 
 

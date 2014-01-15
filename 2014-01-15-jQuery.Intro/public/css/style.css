@@ -1,1 +1,18 @@
 //style.css//
+
+p {
+  font-size:30px;
+}
+
+.alert{
+  background-color: red;
+}
+
+.success{
+  background-color:green;
+}
+
+.cp{
+  font-family: 'Averia Sans Libre', cursive;
+}
+
