@@ -33,6 +33,6 @@ test("makeEvenStringsUppercase", function(){
 
 
 test("sumLengthOfStrings", function(){
-  var strings = "this is a very long string" ;
-  deepEqual(sumLengthOfStrings(strings), 21, "String should be 21 characters (spaces ignored)");
+  var string = "this is a very long string" ;
+  deepEqual(sumLengthOfStrings(string), 21, "String should be 21 characters (spaces ignored)");
 });
