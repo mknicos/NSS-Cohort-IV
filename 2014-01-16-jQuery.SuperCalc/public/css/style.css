@@ -1,0 +1,60 @@
+//MAIN CSS FILE//
+
+#buttons{
+  margin: 20px;
+}
+
+.number, .operator{
+  border: 3px solid #567F0F;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  text-align: center;
+  display:inline-block;
+  padding: 20px;
+  background-color: #9FEB1B;
+  color: #002691;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow:  0px 2px 3px 2px black,
+    inset 0 0 5px 2px #567F0f;
+}
+
+#display{
+  border: 3px solid #755D1F;
+  width: 250px;
+  height: 50px;
+  margin-left:50px;
+  margin-top:10px;
+  background-color: #FFCA44;
+  box-shadow:  0px 2px 3px 2px black,
+    inset 0 0 5px 2px #755D1f;
+  padding: 10px;
+  font-size: 40px;
+  text-align: right;
+}
+
+#queue{
+  float:right;
+  width:150px;
+  height:375px;
+  border: 3px solid #3142DE;
+  background-color: #90CAE9;
+  margin-right:10px;
+  box-shadow:  0px 2px 3px 3px black,
+    inset 0 0 10px 3px #3142DE;
+}
+
+#calcBorder{
+  border:5px solid black;
+  width:530px;
+  margin: auto;
+  background-color: #916C0C;
+  box-shadow: 15px 15px 5px #888888;
+}
+
+h1 {
+  font-size:30px;
+  text-align: center;
+}
+
