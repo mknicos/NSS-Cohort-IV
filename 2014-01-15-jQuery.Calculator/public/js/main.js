@@ -4,7 +4,7 @@ $(document).ready(initialize);
 function initialize(){
   $('#calc').click(calculate);
   $('#clear').click(clear);
-  $('#sum').click(add);
+  $('#sum').click(newSum);
   $('#prod').click(multiply);
   $('#clear2').click(clear2);
 }
@@ -82,4 +82,13 @@ function clear2(){
 //
 
 
+function newSum(){
+  var s =0;
 
+  $('.inputs').each(function(index, element){
+    s += parseFloat(element.value);
+    // could also do s += $(element).val();
+  });
+
+  $('#sumAns').text(s);
+}
