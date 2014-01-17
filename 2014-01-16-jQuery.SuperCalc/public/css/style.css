@@ -1,4 +1,6 @@
 //MAIN CSS FILE//
+@import url(http://fonts.googleapis.com/css?family=Audiowide);
+@import url(http://fonts.googleapis.com/css?family=Aldrich);
 
 #buttons{
   margin: 20px;
@@ -6,7 +8,7 @@
 
 .number, .operator{
   border: 3px solid #567F0F;
-  width: 20px;
+  width: 38px;
   height: 20px;
   margin: 10px;
   text-align: center;
@@ -16,8 +18,25 @@
   color: #002691;
   font-weight: bold;
   font-size: 20px;
-  box-shadow:  0px 2px 3px 2px black,
+  box-shadow:  0px 0px 3px 2px black,
     inset 0 0 5px 2px #567F0f;
+}
+
+
+.number:hover{
+  box-shadow: 0px 0px 5px 6px black;
+}
+
+.number:active{
+  box-shadow: inset 0 0 20px 10px black;
+}
+
+.operator:hover{
+  box-shadow: 0px 0px 5px 6px black;
+}
+
+.operator:active{
+  box-shadow: inset 0 0 20px 10px black;
 }
 
 #display{
@@ -27,7 +46,7 @@
   margin-left:50px;
   margin-top:10px;
   background-color: #FFCA44;
-  box-shadow:  0px 2px 3px 2px black,
+  box-shadow:  0px 0px 3px 2px black,
     inset 0 0 5px 2px #755D1f;
   padding: 10px;
   font-size: 40px;
@@ -41,20 +60,22 @@
   border: 3px solid #3142DE;
   background-color: #90CAE9;
   margin-right:10px;
-  box-shadow:  0px 2px 3px 3px black,
+  box-shadow:  0px 0px 3px 3px black,
     inset 0 0 10px 3px #3142DE;
 }
 
 #calcBorder{
   border:5px solid black;
-  width:530px;
+  width:625px;
   margin: auto;
-  background-color: #916C0C;
+  background-color: #916c0c;
   box-shadow: 15px 15px 5px #888888;
+  font-family: sans-serif;
 }
 
 h1 {
   font-size:30px;
   text-align: center;
+  font-family: 'Aldrich' , sans-serif;
 }
 
