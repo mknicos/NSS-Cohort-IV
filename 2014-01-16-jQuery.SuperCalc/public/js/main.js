@@ -7,7 +7,7 @@ $(document).ready(initialize);
 
 function initialize(){
   $('.number').click(displayNumber);
-  $('.operator').click(flipSign);
+  $('#flip').click(flipSign);
 }
 
 function displayNumber(){ 
@@ -26,7 +26,6 @@ function displayNumber(){
 }
 
 function flipSign(){
-  debugger;
   var display = $('#display').text();
   var output;
   if (display < 0)
