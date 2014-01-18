@@ -6,11 +6,14 @@ $(document).ready(initialize);
 
 
 function initialize(){
-  $('.number').click(displayNumber);
-  $('#flip').click(easyFlip);
-  $('#push').click(pushToQueue);
-  $('.operator').click(compute);
-  $('#clear').click(clearEverything);
+
+  $('.number').click(displayNumber);    //Any number you click on is displayed
+  $('#flip').click(easyFlip);           //changes sign of display
+  $('#push').click(pushToQueue);        //Anything in the display is pushed to the queue
+  $('.operator').click(compute);        //binary operations to numbers in queue '+,-,/,*
+  $('#clear').click(clearEverything);   //clears queue and display
+  $('#sum').click(addQueue);            //takes numbers from display and adds to queue
+  $('#pow').click(exponent);            //exponentiates the numbers
 }
 
 function displayNumber(){ 
@@ -28,7 +31,7 @@ function displayNumber(){
     $('#display').text(output);
 }
 
-function easyFlip(){
+function easyFlip(){      //makes negative display positive, and vica versa
 
   var display = $('#display').text();
   $('#display').text(-1 * display);
@@ -37,17 +40,25 @@ function easyFlip(){
 function pushToQueue(){
 
 
-  if ($('li').length > 9){
+  if ($('li').length > 9){     // Dissalows more than 9 numbers in the queue
     $('#display').text('0');
     alert('The Queue is cannot hold more values')
     return;
    }
 
-  var display = $('#display').text();
+  var display = $('#display').text(); //remove number form display and add to queue
   $('#display').text('0');
   var $li = $('<li>');
   $li.text(display);
   $('#queue').prepend($li);
+
+  if($('li').length < 2){
+    $('.grey-out').addClass('disengage');
+  }
+
+  if($('li').length == 2){
+    $('.grey-out').removeClass('disengage');
+  }
 
   if($('li').length > 2){                  //change apperance of binary operator buttons when they cant be used
     $('.grey-out').addClass('disengage');
@@ -59,7 +70,6 @@ function compute(){
   if($('li').length > 2){     //disallow use of binary operators when there are more than 2 #s in queue
     return;
   }
-
   var operator = this.id;
   var $lis = $('#queue li');
   var numbers = parseTags($lis);
@@ -87,31 +97,42 @@ function compute(){
      quotient = Math.round(quotient * 1000000000)/1000000000;
      displayAndClear(quotient);
      break;
-     
-   case 'sum':                    //need to move sum and pow out of compute function
-      alert('this is working');
-      $('#display').text('Hey');
-     
-
-     break;
-
-   case 'pow':
-     //some stuff
-     break;
-
   }
 }
 
+function addQueue(){          //sums all numbers in the queue and displays total in the display
+  var $lis = $('#queue li');
+  var numbers = parseTags($lis);
+  var result = 0;
 
-function displayAndClear(x){          //will display the argument to display and clear queue
+for(var i =0; i < numbers.length; i++)
+    result += numbers[i];
+    displayAndClear(result);
+}
+
+function exponent(){    //Will display the result of the 1st number to the 2nd numbers power
+  var $lis = $('#queue li');
+  var numbers = parseTags($lis);
+  var result = 0;
+
+  result = Math.pow(numbers[1], numbers[0])
+  displayAndClear(result);
+}
+
+
+
+
+
+function displayAndClear(x){          //will put the argument on the display and clear queue
   $('#display').text(x);
   $('#queue').text('');
+  $('.grey-out').addClass('disengage');
 }
 
 function clearEverything(){           //Clears display, clears queue, and returns buttons to normal state
   $('#display').text('0');
   $('#queue').text(''); 
-  $('.disengage').removeClass('disengage');
+  $('.grey-out').addClass('disengage');
 }
 
 

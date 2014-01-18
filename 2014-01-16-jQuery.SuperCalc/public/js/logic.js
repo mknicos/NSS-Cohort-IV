@@ -1,7 +1,7 @@
 //LOGIC JAVASCRIPT FILE
 
 function containsChar(word, letter){
-    return word.indexOf(letter) > 0;
+    return word.indexOf(letter) !== -1;
 }
 
 function parseTags($tags){
