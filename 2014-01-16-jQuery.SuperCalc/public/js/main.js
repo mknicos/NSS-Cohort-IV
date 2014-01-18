@@ -35,14 +35,32 @@ function easyFlip(){
 }
 
 function pushToQueue(){
+
+
+  if ($('li').length > 9){
+    $('#display').text('0');
+    alert('The Queue is cannot hold more values')
+    return;
+   }
+
   var display = $('#display').text();
   $('#display').text('0');
   var $li = $('<li>');
   $li.text(display);
   $('#queue').prepend($li);
+
+  if($('li').length > 2){
+    // $('.grey-out').css('background-color', 'grey');
+    $('.grey-out').addClass('disengage');
+
+  }
 }
 
 function compute(){
+  if($('li').length > 2){
+    return;
+  }
+
   var operator = this.id;
   var $lis = $('#queue li');
   var numbers = parseTags($lis);
@@ -91,8 +109,9 @@ function displayAndClear(x){
 }
 
 function clearEverything(){
-  $('#display').text('');
+  $('#display').text('0');
   $('#queue').text(''); 
+  $('.disengage').removeClass('disengage');
 }
 
 

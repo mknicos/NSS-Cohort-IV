@@ -59,7 +59,7 @@ body {
 
 #display{
   border: 3px solid #755D1F;
-  width: 300px;
+  width: 250px;
   height: 50px;
   margin-left:75px;
   margin-top:10px;
@@ -70,22 +70,20 @@ body {
   font-size: 40px;
   text-align: right;
   font-family: 'radiolandregular';
-  display: inline-block;
 }
 
 #queue{
   float:right;
-  width:125px;
+  width:75px;
   height:375px;
   border: 3px solid #3142DE;
   background-color: #90CAE9;
-  margin-right:30px;
-  margin-right: 30px;
+  margin-right:40px;
   margin-top: 45px;
   box-shadow:  0px 0px 3px 3px black,
     inset 0 0 10px 3px #3142DE;
   font-family: 'radiolandregular';
-  padding: 10px;
+  font-size: 18px;
 }
 
 #calcBorder{
@@ -96,35 +94,21 @@ body {
   box-shadow: 15px 15px 15px #2B1C0E;
   position: relative;
   left: 5px;
-  top: 200px;
+  top: 100px;
 }
 
 h1 {
-  font-size:32px;
+  font-size:31px;
   text-align: center;
-  float:right;
-  display:inline-block;
-  position: relative;
-  left:-40px;
 }
 
 li{
-  text-align: right;
+  text-align: center;
   padding: 5px;
   list-style-type: none;
-  font-size: 22px;
+  font-size: 30px;
 }
 
 #push{
   font-size: 16px;
 }
-
-.disengage {
-  background-color: #657569;
-  color: #565E56;
-  box-shadow:none;
-}
-.disengage:hover {
- box-shadow: none;
-}
-
