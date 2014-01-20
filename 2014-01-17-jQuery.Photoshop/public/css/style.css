@@ -4,7 +4,7 @@
   height: 50px;
   padding: 10px;
   float: left;
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 8px;
 }
 
@@ -28,10 +28,20 @@
 
 
 .pixel {
-  width: 5px;
-  height: 5px;
-  padding: 10px;
+  width: 2px;
+  height: 2px;
+  padding: 5px;
   float: left;
   border: 1px solid black;
-  margin: 8px;
+  margin: 5px;
+}
+
+h1{
+  font-size: 32px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#pixels{
+  border:3px solid black;
 }

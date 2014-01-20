@@ -3,31 +3,31 @@
 $(document).ready(initialize);
 
 function initialize(){
-  $('#add-color').click(addColor);
-  $('#add-pixel').click(clickAddPixel);
+  $('#add-color').click(clickAddColor);
+  $('#add-pixels').click(clickAddPixel);
   $('#colors').on('click', '.color', clickSelectColor);
-  $('#pixels').on('mouseover', '.pixels', hoverColorPixel);
+  $('#pixels').on('mouseover', '.pixel', hoverColorPixel);
 }
 
   function clickSelectColor(){
-   if ($(this).hasClass('selected')) 
+   if ($(this).hasClass('selected')){ 
       $(this).removeClass('selected');
-   else{ 
-      $('#colors').removeClass('selected');
+   } else{ 
+      $('.color').removeClass('selected');
       $(this).addClass('selected');
    }
 }
 
 function hoverColorPixel(){
-  var color = $('selected').css('background-color');
+  var color = $('.selected').css('background-color');
   $(this).css('background-color', color);
 }
 
 
-function addColor(){
-    var userColor = $('#color-input').val();
-    $('#color-input').val('');
-    $('#color-input').focus();
+function clickAddColor(){
+    var userColor = $('#color-text').val();
+    $('#color-text').val('');
+    $('#color-text').focus();
 
     var $box = $('<div>');
     $box.addClass('color');
@@ -36,11 +36,11 @@ function addColor(){
 }
 
 function clickAddPixel(){
-  var num = $('num-input').val();
+  var num = $('#number-text').val();
   num = parseInt(num);
 
   for(var i = 0; i < num; i++){
-    var $pixel = $('<div>')
+    var $pixel = $('<div>');
       $pixel.addClass('pixel');
       $('#pixels').prepend($pixel);
   }
