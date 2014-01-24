@@ -14,6 +14,7 @@
     var total = quantity * amount;
     addToTable(item, quantity, amount, total);
     event.preventDefault();
+    updateTotals();
   }
 
   function addToTable(item,quantity, amount, total){      //Function takes input values and adds to table
@@ -34,6 +35,27 @@
 
   function numToCurrency(number){
     return '$' + number.toFixed(2);
+  }
+
+  function sum(numbers){
+    var total = 0;
+    for(var i = 0; i < numbers.length; i ++){
+      total += numbers[i];
+    }
+    return total;
+  }
+
+  function updateTotals(){
+    var $amounts = $('table > tbody > tr > td:nth-child(2)');
+    var numbers = transformToNumbers($amounts);
+    console.log(numbers);
+
+  }
+
+  function transformToNumbers($tds){
+    $.map($tds, function(td){
+      return  td.textContent.slice(1) * 1;
+    });
   }
 
 
