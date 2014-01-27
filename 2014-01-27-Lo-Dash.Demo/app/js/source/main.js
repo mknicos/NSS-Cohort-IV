@@ -25,9 +25,19 @@
       return(x%2 === 0);
     });
 
+    var root = _.map(array, function(x){
+      return Math.sqrt(x);
+    });
+
+    var areAllEven = _.all(array, function(x){
+      return x % 2 === 0;
+    });
+
     console.log(array);
     console.log(next);
     console.log(odd);
+    console.log(root);
+    console.log(areAllEven);
 
 
   }
