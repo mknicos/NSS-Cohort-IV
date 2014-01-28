@@ -1,3 +1,32 @@
 body {
-  background-color: #993399;
+  background-color: #b0c4de;
+}
+#space {
+  height: 50px;
+  border: 0px;
+}
+fieldset {
+  margin-left: 25px;
+  width: 575px;
+  border: 2px solid lightgrey;
+}
+legend {
+  background-color: #b0c4de;
+  color: tomato;
+}
+label {
+  color: tomato;
+}
+#photocontain {
+  height: 275px;
+  width: 525px;
+  border: 2px solid lightgrey;
+  margin-bottom: 20px;
+}
+#photocontain div {
+  height: 250px
+  width: 250px;
+}
+textarea {
+  height: 100px;
 }
