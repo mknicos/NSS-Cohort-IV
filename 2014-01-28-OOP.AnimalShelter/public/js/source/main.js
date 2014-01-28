@@ -1,4 +1,4 @@
-/* global Animal: false */
+/* global Animal, animalFactory: false */
 
 (function(){
 
@@ -15,6 +15,8 @@
     $('form input').on('change', function() {
       radio = $('input[name="gender"]:checked', 'form').val();
     });
+    debugger;
+    animals = animalFactory();
   }
 
   function clickAddPhoto(){
@@ -49,8 +51,6 @@
       var imageURL = $div.style.backgroundImage;
       urls.push(imageURL);
     }
-    console.log(urls);
-
     event.preventDefault();
   }
 
