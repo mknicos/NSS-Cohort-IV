@@ -1,32 +1,55 @@
 body {
   background-color: #b0c4de;
+  text-align: center;
 }
 #space {
   height: 50px;
   border: 0px;
 }
 fieldset {
-  margin-left: 25px;
+  margin: auto;
   width: 575px;
-  border: 2px solid lightgrey;
+  border: 2px solid #20b2aa;
+  background-color: #d4dfed;
 }
 legend {
-  background-color: #b0c4de;
-  color: tomato;
+  color: #20b2aa;
 }
 label {
-  color: tomato;
+  color: #ff6347;
 }
 #photocontain {
   height: 275px;
   width: 525px;
-  border: 2px solid lightgrey;
+  border: 2px solid #20b2aa;
   margin-bottom: 20px;
+  overflow: auto;
 }
 #photocontain div {
+  height: 225px;
+  width: 225px;
+  background-size: cover;
+  margin: 10px;
+  border: 2px solid grey;
+  float: left;
+}
+#wrapper {
   height: 250px
   width: 250px;
 }
 textarea {
   height: 100px;
+}
+button {
+  background-color: #20b2aa;
+  box-shadow: 2px 2px 2px 2px grey;
+  border: 2px solid lightgrey;
+}
+#addPhoto {
+  background-color: #20b2aa;
+  box-shadow: 2px 2px 2px 2px grey;
+  border: 2px solid lightgrey;
+}
+input {
+  border: 1px solid #ff6347;
 }

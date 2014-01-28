@@ -1,7 +1,10 @@
-@bg-color: lightsteelblue;
+@bgColor: lightsteelblue;
+@color1: lightseagreen;
+@color2: tomato;
 
 body{
-  background-color: @bg-color;
+  background-color: @bgColor;
+  text-align: center;
 }
 
 #space{
@@ -10,28 +13,38 @@ body{
 }
 
 fieldset{
-  margin-left: 25px;
+  margin: auto;
   width: 575px;
-  border: 2px solid lightgrey;
+  border: 2px solid @color1;
+  background-color: lighten(@bgColor, 10%);
 }
 
 legend{ 
-  background-color: @bg-color;
-  color: tomato;
+  color: @color1;
 }
 
 label{
-  color: tomato;
+  color: @color2;
 }
 
 #photocontain{
   height: 275px;
   width: 525px;
-  border: 2px solid lightgrey;
+  border: 2px solid @color1;
   margin-bottom: 20px;
+  overflow: auto;
 }
 
 #photocontain div {
+  height: 225px;
+  width: 225px;
+  background-size: cover;
+  margin:10px;
+  border: 2px solid grey;
+  float: left;
+}
+
+#wrapper {
   height: 250px
   width: 250px;
 }
@@ -40,4 +53,19 @@ textarea {
   height: 100px;
 }
 
+button{
+  background-color: @color1;
+  box-shadow: 2px 2px 2px 2px grey;
+  border: 2px solid lightgrey;
+}
 
+
+#addPhoto{
+  background-color: @color1;
+  box-shadow: 2px 2px 2px 2px grey;
+  border: 2px solid lightgrey;
+}
+
+input{
+  border: 1px solid @color2;
+}
