@@ -33,7 +33,6 @@
     photos[0]= 'http://images.nationalgeographic.com/wpf/media-live/photos/000/004/cache/african-elephant_435_600x450.jpg';
     animal = new Animal('Bigem', '20', 'female', photos, 'likes the couch', 'grey', 'elephant');
     animals.push(animal);
-    debugger;
     return animals;
   };
 

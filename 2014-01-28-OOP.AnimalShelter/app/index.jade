@@ -57,17 +57,18 @@ html(class='no-js', lang='en')
         .row
           .small-5.small-centered.columns
             button#addAnimal ADD ANIMAL
-        .row
-          .small-12.columns
-            table
-              thead
-                th Name
-                th Species
-                th Age
-                th Gender
-                th Description
-                th Color
-                th Photos
+    .row
+      .small-12.columns
+        table#animalCollection
+          thead
+            th Name
+            th Species
+            th Age
+            th Gender
+            th Description
+            th Color
+            th Photos
+          tbody#insertTr
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')
