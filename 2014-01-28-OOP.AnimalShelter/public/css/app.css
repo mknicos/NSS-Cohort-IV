@@ -1,11 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700);
 body {
   background-color: #b0c4de;
   text-align: center;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+h1 {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color: #20b2aa;
+  text-shadow: 2px 2px lightgrey;
+  font-weight: bold;
+  font-size: 56px;
 }
 table {
-  margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 100%;
+  border: 2px solid #20b2aa;
+  background-color: #d4dfed;
 }
 #space {
   height: 50px;
@@ -23,9 +34,15 @@ legend {
 label {
   color: #ff6347;
 }
+.image {
+  width: 140px;
+  height: 140px;
+  border: 2px solid white;
+  border-radius: 40px;
+}
 td {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-size: cover;
 }
 #photocontain {

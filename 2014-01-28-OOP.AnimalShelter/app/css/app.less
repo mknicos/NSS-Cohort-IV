@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700);
 @bgColor: lightsteelblue;
 @color1: lightseagreen;
 @color2: tomato;
@@ -5,12 +6,23 @@
 body{
   background-color: @bgColor;
   text-align: center;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+h1{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color: @color1;
+  text-shadow: 2px 2px lightgrey;
+  font-weight: bold;
+  font-size: 56px;
 }
 
 table{
-  margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 100%;
+  border: 2px solid @color1;
+  background-color: lighten(@bgColor, 10%);
 }
 
 #space{
@@ -33,9 +45,16 @@ label{
   color: @color2;
 }
 
+.image {
+  width: 140px;
+  height: 140px;
+  border: 2px solid white;
+  border-radius: 40px;
+}
+
 td{
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-size: cover;
 }
 

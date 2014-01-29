@@ -81,7 +81,7 @@
       $tr.append($td);
 
       $td = $('<td>');
-      $td.css('bacground-image', 'url('+animals[i].photos+')');
+      $td.css('background-image', 'url('+animals[i].photos+')').addClass('image');
       $tr.append($td);
 
       $('tbody').append($tr);
