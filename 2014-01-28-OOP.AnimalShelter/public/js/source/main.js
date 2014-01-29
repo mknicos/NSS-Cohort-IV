@@ -57,31 +57,33 @@
     for(var i = 0; i < animals.length; i ++){
       var $tr = $('<tr>');
       var $td = $('<td>');
-      $td.text(animals[i].name);
+      $td.append($('<a href=# data-search=name data-value='+animals.name+'>').text(animals[i].name));
       $tr.append($td);
 
       $td = $('<td>');
-      $td.text( animals[i].age);
+      $td.append($('<a href=# data-search=age data-value='+animals.age+'>').text( animals[i].age));
       $tr.append($td);
       
       $td = $('<td>');
-      $td.text(animals[i].gender);
+      $td.append($('<a href=# data-search=gender data-value='+animals.gender+'>').text(animals[i].gender));
       $tr.append($td);
 
       $td = $('<td>');
-      $td.text(animals[i].description);
+      $td.append($('<a href=# data-search=description data-value='+animals.description+'>').text(animals[i].description));
       $tr.append($td);
 
       $td = $('<td>');
-      $td.text(animals[i].color);
+      $td.append($('<a href=# data-search=color data-value='+animals.color+'>').text(animals[i].color));
       $tr.append($td);
 
       $td = $('<td>');
-      $td.text(animals[i].species);
+      $td.append($('<a href=# data-search=species data-value='+animals.species+'>').text(animals[i].species));
       $tr.append($td);
 
       $td = $('<td>');
-      $td.css('background-image', 'url('+animals[i].photos+')').addClass('image');
+      var $div = $('<div>');
+      $div.append($('<a href=# data-search=photos data-value='+animals.photos[i]+'>').css('background-image', 'url('+animals[i].photos+')').addClass('image'));
+      $td.append($div);
       $tr.append($td);
 
       $('tbody').append($tr);

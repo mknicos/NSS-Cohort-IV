@@ -7,9 +7,16 @@ body {
 h1 {
   font-family: 'Alegreya Sans SC', sans-serif;
   color: #20b2aa;
-  text-shadow: 2px 2px lightgrey;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   font-size: 56px;
+}
+h2 {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color: #20b2aa;
+  text-shadow: 2px 2px black;
+  font-weight: bold;
+  font-size: 36px;
 }
 table {
   margin-top: 30px;
@@ -17,6 +24,7 @@ table {
   width: 100%;
   border: 2px solid #20b2aa;
   background-color: #d4dfed;
+  text-align: left;
 }
 #space {
   height: 50px;
@@ -27,6 +35,7 @@ fieldset {
   width: 575px;
   border: 2px solid #20b2aa;
   background-color: #d4dfed;
+  box-shadow: 1px 1px 2px 2px #4874ad;
 }
 legend {
   color: #20b2aa;
@@ -37,8 +46,12 @@ label {
 .image {
   width: 140px;
   height: 140px;
-  border: 2px solid white;
+  border: 2px solid tomato;
   border-radius: 40px;
+  background-size: cover;
+}
+td div {
+  background-size: cover;
 }
 td {
   height: 150px;
