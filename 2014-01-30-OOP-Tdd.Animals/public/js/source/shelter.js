@@ -9,6 +9,7 @@ var Shelter = (function(){
     this.name = x;
     this.location = 'Not Defined';
     this.capacity = 0;
+    this.animals = [];
   }
 
   Shelter.prototype.setHours = function(times){
@@ -18,6 +19,17 @@ var Shelter = (function(){
 
       this.hours = hours.join(', ');
     };
+
+  Shelter.prototype.addAnimal = function(animal){
+    this.animals.push(animal);
+  };
+
+  Shelter.prototype.placeAnimal = function(name){
+    var animals = _.remove(this.animals, function(x){
+      return x.name === name;
+    });
+    return animals[0];
+  };
 
 
   return Shelter;
