@@ -13,3 +13,9 @@ test('Stock#new', function() {
   deepEqual(s1.getShares(), 50, 's1 should have 50 shares');
   deepEqual(s1.getPurchaseAmount(), 25, 's1 should a purchased at $25');
 });
+
+test('Stock#currentPrice', function() {
+  var s1 = new Stock('AAPL', 50, 25)  ;
+  
+  ok(s1.currentPrice() > 0, 's1 should be above 0');
+});

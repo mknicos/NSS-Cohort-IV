@@ -26,5 +26,12 @@ var Stock = (function(){
     return purchaseAmount;
   };
 
+  Stock.prototype.currentPrice = function(){
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+symbol+'&callback=?';
+    $.getJSON(url, function(quote){
+      console.log(quote);
+    });
+  };
+
   return Stock;
 })();
