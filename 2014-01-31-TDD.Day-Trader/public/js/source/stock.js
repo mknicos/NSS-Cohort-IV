@@ -26,10 +26,15 @@ var Stock = (function(){
     return purchaseAmount;
   };
 
-  Stock.prototype.currentPrice = function(){
+  Stock.prototype.getQuote = function(fn){
     var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+symbol+'&callback=?';
-    $.getJSON(url, function(quote){
-      console.log(quote);
+    $.getJSON(url, fn);
+  };
+
+  Stock.prototype.value = function(fn){
+    this.getQuote(function(quote){
+      var total = quote.LastPrice * shares;
+      fn(total);
     });
   };
 
