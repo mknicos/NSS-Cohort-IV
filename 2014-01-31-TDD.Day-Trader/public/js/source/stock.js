@@ -4,36 +4,40 @@ var Stock = (function(){
 
   'use strict';
 
-  var symbol;
-  var shares = 0;
-  var purchaseAmount = 0;
 
-  function Stock(iSymbol, iShares, iPurchaseAmount){
-    symbol = iSymbol;
-    shares = iShares;
-    purchaseAmount = iPurchaseAmount;
+  function Stock(symbol, shares, purchaseAmount){
+    this._symbol = symbol;
+    this._shares = shares;
+    this._purchaseAmount = purchaseAmount;
   }
 
-  Stock.prototype.getSymbol = function(){
-    return symbol;
-  };
-
-  Stock.prototype.getShares = function(){
-    return shares;
-  };
+  Object.defineProperty(Stock.prototype, 'symbol', {
+    // define read only getter function ie instance.symbol
+    get: function(){return this._symbol;}
+  });
   
-  Stock.prototype.getPurchaseAmount = function(){
-    return purchaseAmount;
-  };
+  Object.defineProperty(Stock.prototype, 'shares', {
+    // define read only getter function ie instance.shares
+    get: function(){return this._shares;}
+  });
 
+  Object.defineProperty(Stock.prototype, 'purchaseAmount', {
+    // define read only getter function ie instance.purchaseAmount
+    get: function(){return this._purchaseAmount;}
+  });
+/*
   Stock.prototype.getQuote = function(fn){
     var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+symbol+'&callback=?';
     $.getJSON(url, fn);
   };
-
+*/
+  // the instance calling value will provide value with a function
+  // to call when the data comes back
   Stock.prototype.value = function(fn){
-    this.getQuote(function(quote){
-      var total = quote.LastPrice * shares;
+    var that = this;
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+that.symbol+'&callback=?';
+    $.getJSON(url, function(quote){
+      var total = quote.LastPrice * that.shares;
       fn(total);
     });
   };
