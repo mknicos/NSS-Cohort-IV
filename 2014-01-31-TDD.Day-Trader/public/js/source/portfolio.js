@@ -17,9 +17,10 @@ var Portfolio = (function(){
   
   Portfolio.prototype.addStock = function(stocks){
     this._stocks = this._stocks.concat(stocks);
-    //this._stocks.push(stocks);
-    //this._stocks = _.flatten(this._stocks);
-    /*
+  };
+    /*this._stocks.push(stocks);
+    this._stocks = _.flatten(this._stocks);
+    
     var that = this;
     if(stocks instanceof Stock){
       this._stocks.push(stocks);
@@ -27,22 +28,18 @@ var Portfolio = (function(){
       stocks.forEach(function(stock){
         that._stocks.push(stock);
       });
-    }*/
-  };
+    }
 
-  Portfolio.prototype.getStock = function(stockNames){
-    debugger;
-    var tempStocks = [];
-    tempStocks.push(stockNames);
+  Portfolio.prototype.getStock = function(stockSymbol){
+    var tempStocks = [], that = this, matches = [], match;
+    tempStocks.push(stockSymbol);
     tempStocks = _.flatten(tempStocks);
-    var that = this;
-    var matches = [];
-    var match;
-    _.forEach(tempStocks, function(stockName){
-      debugger;
-      var  match  = _.where(that._stocks, {'symbol': stockName });
+
+    _.forEach(tempStocks, function(stockSymbol){
+      var  match  = _.where(that._stocks, {'symbol': stockSymbol });
       matches.push(match);
     });
+
     matches = _.flatten(matches);
     if(matches.length < 2){
       return matches[0];
@@ -50,6 +47,26 @@ var Portfolio = (function(){
       return matches;
     }
   };
+  */
+
+  Portfolio.prototype.getStock = function(stockSymbols){
+    var output;
+    if (typeof stockSymbols === 'string'){
+      output = findStock(stockSymbols, this._stocks);
+    }else{
+      output = _.map(stockSymbols, function(stockSymbol){
+        return findStock(stockSymbol, this._stocks);
+      }, this);
+    }
+    return output;
+  };
+
+  //// Private ////
+  function findStock(symbol, stocks){
+    return _.find(stocks, function(stock){
+      return symbol === stock.symbol;
+    });
+  }
 
   return  Portfolio;
 })();
