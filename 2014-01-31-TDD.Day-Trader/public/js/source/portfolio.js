@@ -61,9 +61,43 @@ var Portfolio = (function(){
     return output;
   };
 
+  Portfolio.prototype.delStock = function(stockSymbols){
+    var stocks = [].concat(stockSymbols);
+    
+    var output = _.remove(this._stocks, function(stock){
+      return _.contains(stocks, stock.symbol);
+
+    });
+    if(typeof stockSymbols === 'string'){
+      output = output[0];
+    }
+    return output;
+  };
+/*
+  Portfolio.prototype.delStock = function(stockSymbols){
+    //var stocks = [].concat(stockSymbols);
+    var output;
+    debugger;
+    if (typeof stockSymbols === 'string'){
+      output = removeStock(stockSymbols, this._stocks);
+      output = output[0];
+    }else{
+      output = _.map(stockSymbols, function(stockSymbol){
+        return removeStock(stockSymbol, this._stocks);
+      }, this);
+    }
+    return output;
+
+  };
+*/
   //// Private ////
   function findStock(symbol, stocks){
     return _.find(stocks, function(stock){
+      return symbol === stock.symbol;
+    });
+  }
+  function removeStock(symbol, stocks){
+    return _.remove(stocks, function(stock){
       return symbol === stock.symbol;
     });
   }

@@ -81,20 +81,25 @@ test('Portfolio#getStock', function(){
   deepEqual(stocks.length, 2, 'stocks contains 2 stocks');
 });
 
-/*
-  test('Portfolio#removeStock', function() {
-  var p1 = new portfolioFactory('Tech Stocks');
+test('Portfolio#delStock', function() {
+  var p1 = new Portfolio('Tech Stocks');
   var s1 = new Stock('AAPL', 50, 25);
-  var s2 = new Stock('AMZN', 40, 30);
-  var s3 = new Stock('LUV', 60, 40);
+  var s2 = new Stock('AMZN', 150, 20);
+  var s3 = new Stock('GOOG', 250, 30);
+  var s4 = new Stock('MSFT', 250, 35);
 
   p1.addStock(s1);
   p1.addStock(s2);
   p1.addStock(s3);
+  p1.addStock(s4);
 
-  var s4 = p1.removeStock('AAPL');
+  var s5 = p1.delStock('AAPL');
 
-  deepEqual(s4.getSymbol(), 'AAPL', 'the deleted stock should be AAPL');
-  deepEqual(p1.stockCount(), 2, 'p1 should have two stocks');
+  deepEqual(p1._stocks.length, 3, 'p1 should have 3 stocks left');
+  ok(s5.symbol === 'AAPL', 's5 should be AAPL');
+  var stocks = p1.delStock(['GOOG', 'MSFT']);
+
+  deepEqual(p1._stocks.length, 1, 'p1 should only have one stock left');
+  ok(stocks[0].symbol === 'GOOG', 'the first stock in stocks should be GOOGLE');
+  ok(stocks[1].symbol === 'MSFT', 'the second stock in stocks should be MSFT');
 });
-*/
