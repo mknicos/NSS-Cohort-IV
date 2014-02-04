@@ -1,4 +1,4 @@
-/* global ok, deepEqual, test, throws, asyncTest, start, start, Portfolio, start, Stock: false */
+/* global ok, deepEqual, test, throws, asyncTest, start, start, Portfolio, start, Client, Stock: false */
 
 'use strict';
 
@@ -97,9 +97,46 @@ test('Portfolio#delStock', function() {
 
   deepEqual(p1._stocks.length, 3, 'p1 should have 3 stocks left');
   ok(s5.symbol === 'AAPL', 's5 should be AAPL');
+
   var stocks = p1.delStock(['GOOG', 'MSFT']);
 
   deepEqual(p1._stocks.length, 1, 'p1 should only have one stock left');
   ok(stocks[0].symbol === 'GOOG', 'the first stock in stocks should be GOOGLE');
   ok(stocks[1].symbol === 'MSFT', 'the second stock in stocks should be MSFT');
+});
+
+test('Client#new', function() {
+  var c1 = new Client('Client1');
+
+  ok(c1 instanceof Client, 'c1 is an instance of Client');
+  deepEqual(c1.name,'Client1', 'c1 should have a name');
+  deepEqual(c1.portfolioCount, 0, 'c1 should not have any portfolios');
+});
+
+test('Client#addPortfolio', function() {
+  var c1 = new Client('Client1');
+  var p1 = new Portfolio('Tech Stocks');
+  var p2 = new Portfolio('Non-Tech Stocks');
+  var p3 = new Portfolio('Semi-Tech Stocks');
+  c1.addPortfolio(p1);
+  c1.addPortfolio([p2, p3]);
+   
+  deepEqual(c1.portfolioCount, 3, 'c1 should have three stocks');
+});
+
+test('Client#getPortfolios', function(){
+  var c1 = new Client('Client1');
+  var c2 = new Client('Client2');
+  var p1 = new Portfolio('Tech Stocks');
+  var p2 = new Portfolio('Non-Tech Stocks');
+  var p3 = new Portfolio('Semi-Tech Stocks');
+  c1.addPortfolio(p1);
+  c2.addPortfolio([p2, p3]);
+  var p4 = c1.getPortfolios('Tech Stocks');
+  var portfolios = c2.getPortfolios(['Non-Tech Stocks', 'Semi-Tech Stocks']);
+  
+  ok(p4.name === 'Tech Stocks', 'p4 contains Tech Stocks');
+  ok(portfolios[0].name === 'Non-Tech Stocks', 'the first portfoilio in portfolios contains Non Tech Stocks');
+  ok(portfolios[1].name === 'Semi-Tech Stocks', 'the first portfoilio in portfolios contains Non Tech Stocks');
+  deepEqual(portfolios.length, 2, 'portfolios contains 2 portfolios');
 });
