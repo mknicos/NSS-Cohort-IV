@@ -56,13 +56,33 @@ var Client = (function(){
     return output;
   };
 
-  Client.prototype.purchaseStock = function(symbol, shares, callback){
+  Client.prototype.purchaseStock = function(symbol, shares, innerCallback){
+    var that = this;
     var stock, total;
     var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+symbol+'&callback=?';
     $.getJSON(url, function(quote){
       total = quote.LastPrice * shares;
-      stock = new Stock(symbol, shares, quote.LastPrice);
-      callback(stock);
+
+      if (that.cash - total >= 0){
+        stock = new Stock(symbol, shares, quote.LastPrice);
+        that.cash -= total;
+      }
+
+      innerCallback(stock);
+    });
+  };
+
+  Client.prototype.sellStock = function(stock, amount, innerCallback){
+    var that = this;
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+stock.symbol +'&callback=?';
+    $.getJSON(url, function(quote){
+      if(amount <= stock.shares){
+        var total = quote.LastPrice * amount;
+        that.cash += total;
+        stock.shares -= amount;
+      }
+      
+      innerCallback(stock);
     });
   };
 

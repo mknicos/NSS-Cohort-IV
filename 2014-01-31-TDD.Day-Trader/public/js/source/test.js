@@ -176,28 +176,29 @@ test('Client#delPortfolio', function() {
 asyncTest('Client#purchaseStock', function(){
   stop();
   var c1 = new Client('Bob', 50000);
-  c1.purchaseStock('GOOG', 100, function(stock){
+  c1.purchaseStock('GOOG', 20, function(stock){
     ok(stock instanceof Stock, 'stock should be a  Stock object');
-    deepEqual(stock.shares, 100, 'should be 100 shares');
+    deepEqual(stock.shares, 20, 'should be 100 shares');
     deepEqual(stock.symbol, 'GOOG', 'should be GOOG');
     ok(c1.cash < 50000, 'should have less than $50k');
     start();
   });
-  c1.purchaseStock('AAPL', 25000, function(stock){
+  var c2 = new Client('Bob2', 50000);
+  c2.purchaseStock('AAP', 25000, function(stock){
     ok(!stock, 'should not be a stock');
-    ok(c1.cash === 50000, 'should have 50000');
+    ok(c2.cash === 50000, 'should have 25000');
     start();
   });
 });
 
 asyncTest('Client#sellStock', function() {
-  var c1 = new Client('Bob', 50000);
-  var s1 = new Stock('AAPL', 50, 25);
-  c1 .sellStock(s1, 10, function(stock){
+  var c1 = new Client('Bob', 100000);
+  var s1 = new Stock('AAPL', 50, 250);
+  c1.sellStock(s1, 10, function(stock){
     ok(stock instanceof Stock, 'stock should be a  Stock object');
-    deepEqual(stock.shares, 48, 'should be 50 shares');
+    deepEqual(stock.shares, 40, 'should be 40 shares');
     deepEqual(stock.symbol, 'AAPL', 'should be aapl');
-    ok(c1.cash > 100000, 'should have less than $1100k');
+    ok(c1.cash > 100000, 'should have more than 50k');
     start();
   });
 });
