@@ -2,6 +2,8 @@
 
 'use strict';
 
+//----------------Stock Tests---------------------//
+
 test('Stock#new', function(){
   var s1 = new Stock('AAPL', 50, 25);
   
@@ -40,6 +42,8 @@ asyncTest('Stock#value', function() {
     start();
   });
 });
+
+//-----------------------Portfolio-Tests----------------------//
 
 test('Portfolio#new', function() {
   var p1 = new Portfolio('Tech Stocks');
@@ -105,6 +109,8 @@ test('Portfolio#delStock', function() {
   ok(stocks[1].symbol === 'MSFT', 'the second stock in stocks should be MSFT');
 });
 
+//------------------------------Client Tests--------------------------//
+
 test('Client#new', function() {
   var c1 = new Client('Client1');
 
@@ -140,3 +146,30 @@ test('Client#getPortfolios', function(){
   ok(portfolios[1].name === 'Semi-Tech Stocks', 'the first portfoilio in portfolios contains Non Tech Stocks');
   deepEqual(portfolios.length, 2, 'portfolios contains 2 portfolios');
 });
+
+
+test('Client#delPortfolio', function() {
+  var c1 = new Client('Client1');
+  var p1 = new Portfolio('Tech Stocks');
+  var p2 = new Portfolio('Non-Tech Stocks');
+  var p3 = new Portfolio('Semi-Tech Stocks');
+  var p4 = new Portfolio('Mutual Funds');
+
+  c1.addPortfolio(p1);
+  c1.addPortfolio(p2);
+  c1.addPortfolio(p3);
+  c1.addPortfolio(p4);
+
+  var p5 = c1.delPortfolio('Tech Stocks');
+
+  deepEqual(c1._portfolios.length, 3, 'c1 should have 3 stocks left');
+  ok(p5.name === 'Tech Stocks', 'The removed stock should have a name of Tech Stocks');
+
+  var portfolios = c1.delPortfolio(['Non-Tech Stocks', 'Semi-Tech Stocks']);
+
+  deepEqual(c1._portfolios.length, 1, 'c1 should only have one portfolio left');
+  ok(portfolios[0].name === 'Non-Tech Stocks', 'the first portfolio should be Non Tech Stocks');
+  ok(portfolios[1].name === 'Semi-Tech Stocks', 'the second portfolio should be Semi-Tech Stocks');
+});
+
+

@@ -15,7 +15,6 @@ var Client = (function(){
   });
 
   Client.prototype.addPortfolio = function(portfolios){
-    debugger;
     this._portfolios = this._portfolios.concat(portfolios);
   };
 
@@ -24,9 +23,8 @@ var Client = (function(){
     if (typeof portfolioNames === 'string'){
       output = findPortfolio(portfolioNames, this._portfolios);
     }else{
-      debugger;
       output = _.map(portfolioNames, function(portfolioName){
-        return findPortfolio(portfolioNames, this._portfolios);
+        return findPortfolio(portfolioName, this._portfolios);
       }, this);
     }
     return output;
@@ -44,36 +42,26 @@ var Client = (function(){
     }
     return output;
   };
-/*
-  Portfolio.prototype.delStock = function(stockSymbols){
-    //var stocks = [].concat(stockSymbols);
-    var output;
-    debugger;
-    if (typeof stockSymbols === 'string'){
-      output = removeStock(stockSymbols, this._stocks);
-      output = output[0];
-    }else{
-      output = _.map(stockSymbols, function(stockSymbol){
-        return removeStock(stockSymbol, this._stocks);
-      }, this);
-    }
-    return output;
-
-  };
 */
+  Client.prototype.delPortfolio = function(input){
+    var names = [].concat(input);
+
+    var output = _.remove(this._portfolios, function(portfolio){
+      return _.contains(names, portfolio.name);
+    });
+
+    if(typeof input === 'string'){ output = output[0]; }
+
+    return output;
+  };
+
   //// Private ////
   function findPortfolio(name, portfolios){
     return _.find(portfolios, function(portfolio){
       return name === portfolio.name;
     });
   }
-/*
-  function removeStock(symbol, stocks){
-    return _.remove(stocks, function(stock){
-      return symbol === stock.symbol;
-    });
-  }
-*/
+
   return  Client;
 })();
 
