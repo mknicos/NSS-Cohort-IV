@@ -1,4 +1,4 @@
-/* jshint unused:false */
+/* exported Stock*/
 
 var Stock = (function(){
 
@@ -18,7 +18,8 @@ var Stock = (function(){
   
   Object.defineProperty(Stock.prototype, 'shares', {
     // define read only getter function ie instance.shares
-    get: function(){return this._shares;}
+    get: function(){return this._shares;},
+    set: function(shares){this._shares = shares;}
   });
 
   Object.defineProperty(Stock.prototype, 'purchaseAmount', {
@@ -33,6 +34,7 @@ var Stock = (function(){
 */
   // the instance calling value will provide value with a function
   // to call when the data comes back
+  // sync portion returns undefined
   Stock.prototype.value = function(fn){
     var that = this;
     var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+that.symbol+'&callback=?';

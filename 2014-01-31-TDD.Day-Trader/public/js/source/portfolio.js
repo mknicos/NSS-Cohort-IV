@@ -1,5 +1,4 @@
-/* jshint unused:false*/
-/*global Stock:false*/
+/* exported Portfolio*/
 
 var Portfolio = (function(){
 
@@ -96,12 +95,13 @@ var Portfolio = (function(){
       return symbol === stock.symbol;
     });
   }
+  /*
   function removeStock(symbol, stocks){
     return _.remove(stocks, function(stock){
       return symbol === stock.symbol;
     });
   }
-
+*/
   return  Portfolio;
 })();
 

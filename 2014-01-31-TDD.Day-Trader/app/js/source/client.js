@@ -1,12 +1,13 @@
-/* jshint unused:false*/
-/*global Stock:false*/
+/* exported Client */
+/* global Stock */
 
 var Client = (function(){
 
   'use strict';
 
-  function Client(name){
+  function Client(name, cash){
     this.name = name;
+    this.cash = cash;
     this._portfolios = [];
   }
   Object.defineProperty(Client.prototype, 'portfolioCount', {
@@ -53,6 +54,16 @@ var Client = (function(){
     if(typeof input === 'string'){ output = output[0]; }
 
     return output;
+  };
+
+  Client.prototype.purchaseStock = function(symbol, shares, callback){
+    var stock, total;
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+symbol+'&callback=?';
+    $.getJSON(url, function(quote){
+      total = quote.LastPrice * shares;
+      stock = new Stock(symbol, shares, quote.LastPrice);
+      callback(stock);
+    });
   };
 
   //// Private ////
