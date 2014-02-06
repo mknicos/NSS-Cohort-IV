@@ -72,24 +72,26 @@ var Client = (function(){
     });
   };
 
-  Client.prototype.sellStock = function(stock, amount, callBack){
-    debugger;
-    var quote;
-    var that = this;
-    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+stock.symbol +'&callback=?';
-    $.getJSON(url, quote);
-    callBack(stock);
-
-    quote = function (stock, amount){
+  var quote = function(stock, amount, that, data){
       debugger;
       if(amount <= stock.shares){
-        var total = quote.LastPrice * amount;
+        var total = data.LastPrice * amount;
         that.cash += total;
         stock.shares -= amount;
       }
+      console.log('Hi');
     };
+
+  Client.prototype.sellStock = function(stock, amount, callBack){
+    var that = this;
+    var data;
+
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+stock.symbol +'&callback=?';
+    $.getJSON(url, data, quote(stock, amount, that, data));
+    callBack(stock);
   };
 
+  
   //// Private ////
   function findPortfolio(name, portfolios){
     return _.find(portfolios, function(portfolio){
