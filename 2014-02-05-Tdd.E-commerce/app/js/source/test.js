@@ -22,6 +22,27 @@ test('person#new', function(){
 
 });
 
+test('Person#checkOut', function(){
+  var r1 = new Person('Bob', 500);
+
+  var p1 = new Product('cd', 12);
+  var p2 = new Product('book', 5);
+  var p3 = new Product('car', 15000);
+
+  r1.cart.addProduct(p1, 2);
+  r1.cart.addProduct(p2, 3);
+  var receipt = r1.checkOut();
+
+  ok(r1.cash < 500, 'The person should have less cash');
+  deepEqual(r1.cart.total, 0, 'there should be nothing in the cart');
+  deepEqual(receipt, 'cd, cd, book, book, book', 'should be a list of items bought');
+
+  r1.cash = 500;
+  r1.cart.addProduct(p3);
+  r1.checkOut();
+  deepEqual(r1.cash, 500, 'Nothing should\'ve happened since r1 had insufficient funds');
+});
+
 //---------CART TESTS--------------//
 
 test('cart#addProduct', function(){

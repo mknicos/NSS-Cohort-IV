@@ -11,7 +11,21 @@ var Person = (function(){
     this.cart = new Cart();
   }
 
+  Person.prototype.checkOut = function(){
+    var receipt;
 
+    if(this.cash - this.cart.total >= 0){
+      receipt = _.map(this.cart.products, function(product){
+        return product.name;
+      });
+      receipt = receipt.join(', ');
+      this.cash -= this.cart.total;
+      this.cart.products = [];
+      return receipt;
+    }else{
+      alert('You do not have enough money, you should probably save some');
+    }
+  };
 
   return Person;
 })();
