@@ -73,18 +73,21 @@ var Client = (function(){
   };
 
   Client.prototype.sellStock = function(stock, amount, callBack){
-    console.log('hey this is at the top of the function');
+    debugger;
+    var quote;
     var that = this;
     var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol='+stock.symbol +'&callback=?';
-    $.getJSON(url, function(quote){
+    $.getJSON(url, quote);
+    callBack(stock);
+
+    quote = function (stock, amount){
+      debugger;
       if(amount <= stock.shares){
         var total = quote.LastPrice * amount;
         that.cash += total;
         stock.shares -= amount;
       }
-      
-      callBack(stock);
-    });
+    };
   };
 
   //// Private ////
