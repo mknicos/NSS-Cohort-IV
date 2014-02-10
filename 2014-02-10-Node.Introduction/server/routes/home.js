@@ -12,3 +12,8 @@ exports.name = function(req, res){
 exports.favcolor = function(req, res){
   res.jsonp({color: 'blue'});
 };
+
+exports.sum = function(req, res){
+  var total = parseFloat(req.params.a) + parseFloat(req.params.b);
+  res.jsonp({sum: total});
+};

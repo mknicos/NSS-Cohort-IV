@@ -13,6 +13,8 @@ app.use(app.router);
 app.get('/', home.index);
 app.get('/name', home.name);
 app.get('/favcolor', home.favcolor);
+app.get('/sum/:a/:b', home.sum);
+
 var server = require('http').createServer(app);
 server.listen(app.get('port'), function(){
   console.log('Node server listening. Port: ' + app.get('port'));
