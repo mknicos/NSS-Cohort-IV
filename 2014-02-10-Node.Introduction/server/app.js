@@ -11,7 +11,8 @@ app.use(express.methodOverride());
 app.use(app.router);
 
 app.get('/', home.index);
-
+app.get('/name', home.name);
+app.get('/favcolor', home.favcolor);
 var server = require('http').createServer(app);
 server.listen(app.get('port'), function(){
   console.log('Node server listening. Port: ' + app.get('port'));
