@@ -11,6 +11,7 @@
     $('#sum').click(sum);
     $('#canDrink').click(canIDrink);
     $('#product').click(multiply);
+    $('#transform').click(transform);
   }
 
   function one(){
@@ -55,6 +56,18 @@
     var numbers = $('#numbers').val();
     var url = window.location.origin.replace(/(\d){4}/g, '4000');
     url += '/product?numbers=' + numbers + '&callback=?';
+    console.log(url);
+    $.getJSON(url, function(data){
+      console.log(data);
+      $('#productAnswer').text(data.product);
+    });
+  }
+
+  function transform(){
+    console.log('Transform');
+    var names = $('#names').val();
+    var url = window.location.origin.replace(/(\d){4}/g, '4000');
+    url += '/product?numbers=' + names + '&callback=?';
     console.log(url);
     $.getJSON(url, function(data){
       console.log(data);

@@ -9,4 +9,8 @@ exports.product = function(req, res){
       {return acc * num;}, 1);
 
   res.jsonp({product:answer});
+
+exports.transform = function(req, res){
+  console.log(' transformed stuff');
+}
 };

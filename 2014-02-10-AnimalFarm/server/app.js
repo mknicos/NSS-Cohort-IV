@@ -2,7 +2,7 @@
 
 var express = require('express');
 var home = require('./routes/home');
-var math= require('./routes/math');
+var animal = require('./routes/animal');
 var app = express();
 
 app.set('port', process.env.PORT || 4000);
@@ -12,12 +12,8 @@ app.use(express.methodOverride());
 app.use(app.router);
 
 app.get('/', home.index);
-app.get('/name', home.name);
-app.get('/favcolor', home.favcolor);
-app.get('/sum/:a/:b', home.sum);
-app.get('/drink/:name/:age', home.drink);
-app.get('/product', math.product);
-app.get('/transform', math.transform);
+app.get('/animal', animal.create);
+
 
 var server = require('http').createServer(app);
 server.listen(app.get('port'), function(){
