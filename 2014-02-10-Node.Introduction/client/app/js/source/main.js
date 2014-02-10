@@ -9,6 +9,7 @@
     $('#one').click(one);
     $('#two').click(two);
     $('#sum').click(sum);
+    $('#canDrink').click(canIDrink);
   }
 
   function one(){
@@ -34,6 +35,18 @@
     url += '/sum/'+num1+'/'+num2+'?callback=?';
     $.getJSON(url, function(data){
       console.log(data);
+      $('#answer').text(data.sum);
+    });
+  }
+
+  function canIDrink(){
+    var age = $('#age').val();
+    var name = $('#name').val();
+    var url = window.location.origin.replace(/(\d){4}/g, '4000');
+    url += '/drink/'+name+'/'+age+'?callback=?';
+    $.getJSON(url, function(data){
+      console.log(data);
+      $('#display').text(data.response);
     });
   }
 

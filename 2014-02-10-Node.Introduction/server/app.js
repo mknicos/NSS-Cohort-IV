@@ -14,6 +14,7 @@ app.get('/', home.index);
 app.get('/name', home.name);
 app.get('/favcolor', home.favcolor);
 app.get('/sum/:a/:b', home.sum);
+app.get('/drink/:name/:age', home.drink);
 
 var server = require('http').createServer(app);
 server.listen(app.get('port'), function(){
