@@ -6,7 +6,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "lodash": "*"
   },
   "devDependencies": {
     "grunt" : "*",

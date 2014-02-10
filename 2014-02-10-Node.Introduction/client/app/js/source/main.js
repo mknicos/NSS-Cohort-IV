@@ -10,6 +10,7 @@
     $('#two').click(two);
     $('#sum').click(sum);
     $('#canDrink').click(canIDrink);
+    $('#product').click(multiply);
   }
 
   function one(){
@@ -50,5 +51,15 @@
     });
   }
 
+  function multiply(){
+    var numbers = $('#numbers').val();
+    var url = window.location.origin.replace(/(\d){4}/g, '4000');
+    url += '/product?numbers=' + numbers + '&callback=?';
+    console.log(url);
+    $.getJSON(url, function(data){
+      console.log(data);
+      $('#productAnswer').text(data.product);
+    });
+  }
 })();
 
