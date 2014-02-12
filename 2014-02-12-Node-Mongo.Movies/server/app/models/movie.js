@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = function(name, rating, runTime, year, studio, actors, director, poster){
-  this.name = name;
-  this.rating = rating;
-  this.runTime = parseInt(runTime);
-  this.year = parseInt(year);
-  this.studio = studio;
-  this.actors = actors.split(', '); //should be an array of the actors
-  this.director = director;
-  this.poster = poster;
+module.exports = function(movie){
+  this.name = movie.name || '';
+  this.rating = movie.rating || '';
+  this.runTime = parseInt(movie.runTime || 0);
+  this.year = parseInt(movie.year || 0);
+  this.studio = movie.studio || '';
+  this.actors = movie.actors ? movie.actors.split(', ') : [] ; //should be an array of the actors
+  this.director = movie.director || '';
+  this.poster = movie.poster || '';
 };
 
