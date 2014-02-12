@@ -35,6 +35,7 @@
     var mov = data.movies;
     for(var i = 0; i < data.movies.length; i++){
       var $div = $('<div>');
+      var $div2 = $('<div>');
       var $span1 = $('<span>');
       var $span2 = $('<span>');
       var $span3 = $('<span>');
@@ -43,14 +44,16 @@
       var $span6 = $('<span>');
       var $span7 = $('<span>');
       $span1.text(mov[i].name).addClass('title');
-      $span2.text(mov[i].rating);
-      $span3.text(mov[i].runTime);
-      $span4.text(mov[i].year);
-      $span5.text(mov[i].studio);
-      $span6.text(mov[i].actors);
-      $span7.text(mov[i].director);
-      $div.append($span1, $span2, $span3, $span4, $span5, $span6, $span7);
+      $span2.text(mov[i].rating).addClass('footer');
+      $span3.text(mov[i].runTime).addClass('footer');
+      $span4.text(mov[i].year).addClass('footer');
+      $span5.text(mov[i].studio).addClass('footer');
+      $span6.text(mov[i].actors).addClass('footer');
+      $span7.text(mov[i].director).addClass('footer');
+      $div2.append($span1, $span2, $span3, $span4, $span5, $span6, $span7);
       $div.css('background-image', 'url(' + mov[i].poster + ')');
+      $div2.addClass('posts');
+      $div.append($div2);
       $('#post').append($div);
     }
 
