@@ -9,3 +9,13 @@ exports.create = function(req, res){
     res.send(records[0]);
   });
 };
+
+exports.index = function(req, res){
+  console.log('index fired');
+  var db = req.app.locals.db;
+  var movies = db.collection('movies');
+
+  movies.find().toArray(function(err, movies){
+    res.send({movies:movies});
+  });
+};

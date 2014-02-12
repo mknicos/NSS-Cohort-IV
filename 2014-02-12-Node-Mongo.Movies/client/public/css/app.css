@@ -1,0 +1,46 @@
+body {
+  background-color: #20b2aa;
+}
+h1 {
+  color: tomato;
+  text-align: center;
+  text-shadow: 2px 2px grey;
+}
+form {
+  margin: auto;
+  padding: 10px;
+  width: 700px;
+  text-align: center;
+}
+fieldset {
+  border: 3px solid grey;
+  box-shadow: 3px 3px 5px 3px black;
+}
+#post {
+  width: 1200px;
+}
+#post div {
+  height: 400px;
+  width: 306px;
+  border: 2px solid white;
+  color: white;
+  background-color: grey;
+  float: left;
+  margin: 25px;
+  background-size: cover;
+  box-shadow: 2px 2px 2px 5px black;
+}
+#spacer {
+  height: 50px;
+}
+span {
+  height: 20px;
+  color: white;
+  display: block;
+}
+.title {
+  font-size: 24px;
+  color: red;
+  text-shadow: 2px 2px white;
+  margin-bottom: 6px;
+}
