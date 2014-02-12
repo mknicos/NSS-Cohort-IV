@@ -6,7 +6,29 @@
 
   function initialize(){
     $(document).foundation();
+    $('#create').click(createExercise);
     getExercises();
+
+  }
+
+  function createExercise(){
+    var name = $('#name').val();
+    var time = $('#time').val();
+    var cals = $('#cals').val();
+    var date = $('#date').val();
+
+    var url = window.location.origin.replace(/3000/, '4000');
+    url += '/exercises';
+    var options ={};
+    options.url = url;
+    options.type = 'POST';
+    options.data = {name:name, time:time, calories:cals, date:date};
+    options.success = exerciseCreated;
+    $.ajax(options);
+  }
+
+  function exerciseCreated(){
+
   }
 
   function getExercises(){
