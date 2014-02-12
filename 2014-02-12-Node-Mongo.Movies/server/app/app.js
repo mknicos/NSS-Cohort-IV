@@ -1,11 +1,12 @@
 'use strict';
 
-var dbname = 'database-name';
+var dbname = 'imdb';
 var port = process.env.PORT || 4000;
 
-var d = require('./lib/request-debug');
+var debug = require('./lib/request-debug');
 var express = require('express');
 var home = require('./routes/home');
+var movies = require('./routes/movies');
 var app = express();
 
 /* --- pipeline begins */
@@ -16,7 +17,8 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 
-app.get('/', d, home.index);
+app.get('/', debug, home.index);
+app.post('/movies', debug, movies.create);
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);
