@@ -6,7 +6,7 @@ module.exports = function(name, rating, runTime, year, studio, actors, director,
   this.runTime = parseInt(runTime);
   this.year = parseInt(year);
   this.studio = studio;
-  this.actors = actors; //should be an array of the actors
+  this.actors = actors.split(', '); //should be an array of the actors
   this.director = director;
   this.poster = poster;
 };
