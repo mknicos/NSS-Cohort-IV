@@ -15,8 +15,14 @@ h1 {
   top: -8px;
   border: 3px solid black;
   box-shadow: 1px 1px 1px 1px grey;
-  background-color: white;
+  background-color: lightblue;
   padding: 3px;
+}
+.delete:hover {
+  box-shadow: 1px 1px 3px 3px grey;
+}
+#edit:hover {
+  box-shadow: 1px 1px 3px 3px grey;
 }
 form {
   margin: auto;
@@ -32,14 +38,16 @@ fieldset {
   width: 1200px;
 }
 #edit {
-  height: 25px;
+  height: 22px;
   width: 50px;
   border: 2px solid black;
   position: relative;
-  left: 220px;
+  left: 210px;
   top: 200px;
   background-color: lightblue;
   box-shadow: 1px 1px 1px 1px black;
+  color: black;
+  text-align: center;
 }
 .posts {
   height: 400px;

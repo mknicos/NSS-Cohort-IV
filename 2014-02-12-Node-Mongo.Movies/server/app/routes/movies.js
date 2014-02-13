@@ -29,3 +29,14 @@ exports.delete = function(req, res){
     res.send({removed: numDeleted, id:req.params.id});
   });
 };
+
+
+exports.find = function(req, res){
+  var db = req.app.locals.db;
+  var movies = db.collection('movies');
+  var id = new mongodb.ObjectID(req.params.id);
+
+  movies.find({_id: id}).toArray(function(err, movie){
+    res.send({movie:movie});
+  });
+};
