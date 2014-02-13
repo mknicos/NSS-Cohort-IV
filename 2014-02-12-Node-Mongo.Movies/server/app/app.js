@@ -20,6 +20,7 @@ app.use(app.router);
 app.get('/', debug, home.index);
 app.post('/movies', debug, movies.create);
 app.get('/movies', debug, movies.index);
+app.delete('/movies/:id', debug, movies.delete);
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);

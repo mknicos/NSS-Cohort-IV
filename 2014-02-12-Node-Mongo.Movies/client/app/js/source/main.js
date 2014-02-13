@@ -8,6 +8,7 @@
     $(document).foundation();
     getMovies();
     $('#movie').submit(submitMovie);
+    $('#post').on('click', '.delete', deleteMovie);
   }
 
 
@@ -56,9 +57,31 @@
       $div.css('background-image', 'url(' + mov[i].poster + ')');
       $div.addClass('posts');
       $div2.addClass('footer');
-      $div.append($span1, $span8, $div2);
+      var $edit = $('<div id = edit>');
+      $div.append($span1, $span8, $div2, $edit);
+      $div.attr('data-id', mov[i]._id);
       $('#post').append($div);
     }
 
   }
+
+  function deleteMovie(){
+    var data = $(this).parent().data('id');
+    var url = window.location.origin.replace(/3000/, '4000') + '/movies/' + data;
+    var type = 'DELETE';
+    var success = onSuccess;
+
+    $.ajax({url:url, type:type, data:data, success:success});
+  }
+
+  function onSuccess(data){
+    if(data.removed === 1){
+      var thing = $('.posts[data-id="' +data.id + '"]');
+      thing.remove();
+    }
+    else{
+      alert('Something Went Wrong');
+    }
+  }
+
 })();
