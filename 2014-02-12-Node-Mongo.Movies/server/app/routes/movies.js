@@ -36,10 +36,7 @@ exports.update = function(req, res){
   var movies = db.collection('movies');
   var movie = req.body;
   var id = new mongodb.ObjectID(movie.hiddenID);
-  console.log('THIS IS THE MONGO OBJECT ID');
-  console.log(id);
-  console.log('THIS IS THE WHOLE REQ.BODY');
-  console.log(movie);
+
   movies.update({_id: id}, movie, function(err, returnedID){
 
     res.send({returned: returnedID});
