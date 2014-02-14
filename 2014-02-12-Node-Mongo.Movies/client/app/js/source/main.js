@@ -12,6 +12,7 @@
     $('#post').on('click', '.editLink', editMovie);
     showSubmit();
     $('#changes').click(submitEdit);
+    $('#post').on('click', '.info', showInfo);
   }
 
 // Gets all movies from database
@@ -51,10 +52,12 @@
       $div.css('background-image', 'url(' + mov[i].poster + ')');
       $div.addClass('posts');
       $div2.addClass('footer');
+    //links to top of page when edit button is clicked
       var $a = $('<a href=#top>').addClass('editLink');
-      var $edit = $('<div class = edit>').text('EDIT');
+      var $edit = $('<div class= edit>').text('EDIT');
       $a.append($edit);
-      $div.append($span1, $span8, $div2, $a);
+      var $info = $('<div class= info>').text('INFO');
+      $div.append($span1, $span8, $div2, $a, $info);
       $div.attr('data-id', mov[i]._id);
       $('#post').append($div);
     }
@@ -145,6 +148,11 @@
   function showEdit(){
     $('#submit').hide();
     $('#changes').show();
+  }
+
+  function showInfo(){
+    debugger;
+    $(this).siblings('.footer').toggle();
   }
 
 
