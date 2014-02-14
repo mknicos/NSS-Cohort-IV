@@ -97,7 +97,7 @@ fieldset {
   float: left;
   margin: 25px;
   background-size: cover;
-  box-shadow: 5px 5px 4px 5px grey;
+  box-shadow: 10px 10px 3px 3px #343434;
   text-shadow: 1px 1px black;
   margin-top: 40px;
 }

@@ -30,6 +30,19 @@ exports.delete = function(req, res){
   });
 };
 
+exports.update = function(req, res){
+  console.log(req.body);
+  var db = req.app.locals.db;
+  var movies = db.collection('movies');
+  var movie = req.body;
+  var id = new mongodb.ObjectID(movie.hiddenID);
+  console.log(id);
+  console.log(movie);
+  movies.update({_id: id}, movie, function(err, returnedID){
+
+    res.send({returned: returnedID});
+  });
+};
 
 exports.find = function(req, res){
   var db = req.app.locals.db;

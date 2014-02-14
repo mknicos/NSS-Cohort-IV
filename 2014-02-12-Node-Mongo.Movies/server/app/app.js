@@ -22,6 +22,7 @@ app.post('/movies', debug, movies.create);
 app.get('/movies', debug, movies.index);
 app.delete('/movies/:id', debug, movies.delete);
 app.get('/movies/:id', debug, movies.find);
+app.put('/movies', debug, movies.update);
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);

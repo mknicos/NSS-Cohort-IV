@@ -12,7 +12,7 @@ html(class='no-js', lang='en')
   body
     .row
       .small-12.columns
-        h1 IMDB
+          h1 IMDB
     form#movie
       fieldset
         legend#legend Add A Movie
@@ -20,6 +20,7 @@ html(class='no-js', lang='en')
           .small-4.columns
             label Title
               input#name(type='text', name='name')
+              input#hiddenID(type='hidden', name='hiddenID')
         .row
           .small-4.columns
             label Rating
