@@ -46,7 +46,7 @@ h1 {
   box-shadow: 1px 1px 3px 3px grey;
   background-color: #4cd0ff;
 }
-#edit:hover {
+.edit:hover {
   box-shadow: 1px 1px 3px 3px grey;
   background-color: #4cd0ff;
 }
@@ -74,7 +74,7 @@ fieldset {
 #post {
   width: 1200px;
 }
-#edit {
+.edit {
   height: 22px;
   width: 50px;
   border: 2px solid black;

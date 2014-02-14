@@ -9,7 +9,7 @@
     getMovies();
     $('#submit').click(submitMovie);
     $('#post').on('click', '.delete', deleteMovie);
-    $('#post').on('click', '#edit', editMovie);
+    $('#post').on('click', '.editLink', editMovie);
     showSubmit();
     $('#changes').click(submitEdit);
   }
@@ -41,7 +41,8 @@
       $span3.text(mov[i].runTime).addClass('span').addClass('getRunTime');
       $span4.text(mov[i].year).addClass('span').addClass('getYear');
       $span5.text(mov[i].studio).addClass('span').addClass('getStudio');
-      $span6.text(mov[i].actors.join(' & ')).addClass('span').addClass('getActors');
+      //might need a join on actors
+      $span6.text(mov[i].actors).addClass('span').addClass('getActors');
       $span7.text(mov[i].director).addClass('span').addClass('getDirector');
       $span8.text('X').addClass('delete');
 
@@ -50,8 +51,10 @@
       $div.css('background-image', 'url(' + mov[i].poster + ')');
       $div.addClass('posts');
       $div2.addClass('footer');
-      var $edit = $('<div id = edit>').text('EDIT');
-      $div.append($span1, $span8, $div2, $edit);
+      var $a = $('<a href=#top>').addClass('editLink');
+      var $edit = $('<div class = edit>').text('EDIT');
+      $a.append($edit);
+      $div.append($span1, $span8, $div2, $a);
       $div.attr('data-id', mov[i]._id);
       $('#post').append($div);
     }
@@ -78,7 +81,8 @@
 //Send Update request to server
   function submitEdit(event){
     showSubmit();
-    var data = $(this).serialize();
+    debugger;
+    var data = $('#movie').serialize();
     var url = window.location.origin.replace(/3000/, '4000') + '/movies';
     var type = 'PUT';
     var success = updateMovie;
@@ -104,7 +108,8 @@
       $('#runTime').val(movie.runTime);
       $('#year').val(movie.year);
       $('#studio').val(movie.studio);
-      $('#actors').val(movie.actors.join(', '));
+      //might need a join
+      $('#actors').val(movie.actors);
       $('#director').val(movie.director);
       $('#poster').val(movie.poster);
       $('#hiddenID').val(movie._id);
