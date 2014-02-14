@@ -10,6 +10,8 @@
     $('#movie').submit(submitMovie);
     $('#post').on('click', '.delete', deleteMovie);
     $('#post').on('click', '#edit', editMovie);
+    showSubmit();
+    $('#movie').submit(submitEdit);
   }
 
 
@@ -25,6 +27,23 @@
     event.preventDefault();
   }
 
+  function submitEdit(event){
+    showSubmit();
+    var data = $(this).serialize();
+    debugger;
+    var url = window.loacation.origin.replace(/3000/, '4000') + '/movies';
+    var type = 'PUT';
+    var success = updateMovie;
+
+
+
+    event.preventDefault();
+  }
+
+  function updateMovie(movie){
+    console.log(movie);
+  }
+
   function newMovie(movie){
     console.log(movie);
   }
@@ -35,6 +54,7 @@
   }
 
   function editMovie(){
+    showEdit();
     var id = $(this).parent().data('id');
     var url = window.location.origin.replace(/3000/, '4000') + '/movies/' + id;
     $.getJSON(url, function(data){
@@ -103,4 +123,32 @@
     }
   }
 
+  function showSubmit(){
+    $('#changes').hide();
+    $('#submit').show();
+  }
+
+  function showEdit(){
+    $('#submit').hide();
+    $('#changes').show();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })();
+
+
+
+
+

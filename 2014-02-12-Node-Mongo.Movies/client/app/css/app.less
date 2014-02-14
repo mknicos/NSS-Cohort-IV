@@ -1,34 +1,60 @@
-@bg-color: lightseagreen;
+@import url(http://fonts.googleapis.com/css?family=Over+the+Rainbow);
+@import url(http://fonts.googleapis.com/css?family=Fascinate);
+
+@bg-color: #DEEEF6;
+@button-color: #007199;
+@color2: #00628E;
+@color3: #08A679;
 
 body{
   background-color: @bg-color;
 }
 
+button{
+  background-color: @button-color;
+  border-radius:  20px;
+  color: ivory;
+  border: 3px solid darken(@button-color, 30%);
+  font-family: 'Facinate', cursive;
+  font-size: 30px;
+  padding: 15px;
+  box-shadow: inset 0px 0px 15px grey;
+}
+
+#name, #rating, #studio, #actors, #poster, #director, #runTime, #year {
+  background-color: lighten(@button-color, 35%);
+}
+
 h1{
-  color: tomato;
+  color: grey;
   text-align: center;
-  text-shadow: 2px 2px grey;
+  text-shadow: 2px 2px black;
+  font-family: 'Facinate', cursive;
+  font-size: 60px;
 }
 
 .delete{
   font-size: 30px;
   color: black;
-  text-shadow: 2px 2px grey;
   position: relative;
   left: 230px;
   top: -8px;
   border: 3px solid black;
-  box-shadow: 1px 1px 1px 1px grey;
-  background-color: lightblue;
+  box-shadow: inset 0 1px 3px grey;
+  background-color: @color3;
   padding: 3px;
+  border-radius: 10px;
 }
 
 .delete:hover{
   box-shadow: 1px 1px 3px 3px grey;
+  background-color: lighten(@button-color, 35%);
+ // background-image: url(http://www.waofmusic.com/images/close_icon.png);
 }
 
 #edit:hover{
   box-shadow: 1px 1px 3px 3px grey;
+  background-color: lighten(@button-color, 35%);
 }
 
 form{
@@ -41,6 +67,18 @@ form{
 fieldset{
   border: 3px solid grey;
   box-shadow: 3px 3px 5px 3px black;
+  background-color: darken(@bg-color, 20%);
+  border-radius: 30px;
+}
+
+#legend{
+  color: black;
+  font-size: 20px;
+  background-color: @bg-color;
+  border: 3px solid grey;
+  border-radius: 30px;
+  padding: 5px;
+  font-family: 'Facinate', cursive;
 }
 
 #post {
@@ -52,26 +90,29 @@ fieldset{
   width: 50px;
   border: 2px solid black;
   position: relative;
-  left: 210px;
-  top: 200px;
-  background-color: lightblue;
-  box-shadow: 1px 1px 1px 1px black;
+  left: 205px;
+  top: 195px;
+  background-color: @color3;
+  box-shadow: 3px 3px 1px 1px black;
   color: black;
   text-align: center;
+  border-radius: 5px;
 }
 
 
 .posts{
   height: 400px;
   width: 270px;
-  border: 2px solid white;
+  border: 4px solid darken(@bg-color, 40%);
+  border-radius: 10px;
   color: white;
   background-color: grey;
   float: left;
   margin: 25px;
   background-size: cover;
-  box-shadow: 2px 2px 2px 5px black;
+  box-shadow: 5px 5px 4px 5px grey;
   text-shadow: 1px 1px black;
+  margin-top: 40px;
 }
 
 #spacer{
@@ -82,19 +123,21 @@ fieldset{
   height: 20px;
   color: white;
   display: block;
-  background-color: rgba(66,66,66,.5);
+  background-color: rgba(66,66,66,.2);
 }
 
 .title{
   font-size: 20px;
-  color: tomato;
-  text-shadow: 2px 2px white;
+  color: @color2;
+  text-shadow: 1px 1px black;
   display:block;
   background-color: none;
+  position: relative;
+  top: -35px;
 }
 
 .footer{
   position: relative;
-  top: 230px;
+  top: 220px;
   color: yellow;
 }
