@@ -2,6 +2,7 @@
 
 module.exports = Priority;
 var priorities = global.nss.db.collection('priorities');
+var Mongo = require('mongodb');
 
 function Priority(obj){
   this._id = obj._id;
@@ -28,7 +29,8 @@ Priority.findByName = function(name, fn){
 };
 
 Priority.findById = function(id, fn){
-  priorities.findOne({_id: id}, function(err, record){
+  var _id = Mongo.ObjectID(id);
+  priorities.findOne({_id: _id}, function(err, record){
     fn(new Priority(record));
   });
 };

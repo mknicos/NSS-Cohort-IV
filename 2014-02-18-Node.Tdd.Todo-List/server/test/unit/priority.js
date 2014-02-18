@@ -92,8 +92,8 @@ describe('priority', function(){
       p1.save(function(){
         p2.save(function(){
           p3.save(function(){
-            Priority.findById(p2._id, function (priority){
-              expect(priority).to.have.property('_id', p2._id);
+            Priority.findById(p2._id.toString(), function (priority){
+              expect(priority._id.toString()).to.deep.equal(p2._id.toString());
               expect(priority).to.be.an.instanceof(Priority);
               done();
             });
