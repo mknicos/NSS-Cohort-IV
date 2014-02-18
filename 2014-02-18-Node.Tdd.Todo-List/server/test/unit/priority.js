@@ -33,13 +33,24 @@ describe('priority', function(){
 
   describe('#save', function(){
     it('should save a Priority object into the database', function(done){
-      var obj = {name: 'High', value: '10'};
-      var p1 = new Priority(obj);
+      var p1 = new Priority({name: 'High', value: '10'});
       p1.save(function(savedPriority){
         expect(savedPriority).to.be.instanceof(Priority);
         expect(savedPriority).to.have.property('_id').and.be.ok;
         done();
       });
+    });
+    it('should not create a priority with a name that already exists', function(done){
+      var p1 = new Priority({name: 'High', value: '10'});
+      var p2 = new Priority({name: 'Medium', value: '5'});
+      var p3 = new Priority({name: 'Low', value: '1'});
+
+      p2.save(function(){
+          p3.save(function(){
+            p1.save(function(){
+            });
+          });
+        });
     });
   });
 
