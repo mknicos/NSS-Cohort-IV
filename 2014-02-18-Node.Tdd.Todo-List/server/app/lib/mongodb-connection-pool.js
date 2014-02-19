@@ -3,9 +3,9 @@
 var MongoClient = require('mongodb').MongoClient;
 
 module.exports = function(dbname, fn){
-  var connection = 'mongodb://localhost/' + dbname;
+  var connection  = 'mongodb://localhost/' + dbname;
 
-  MongoClient.connect(connection, function(err, db) {
+  MongoClient.connect(connection, function(err,db){
     if(err){throw err;}
     global.nss = {};
     global.nss.db = db;
@@ -14,4 +14,3 @@ module.exports = function(dbname, fn){
     fn();
   });
 };
-

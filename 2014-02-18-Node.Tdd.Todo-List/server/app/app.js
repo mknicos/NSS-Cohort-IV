@@ -8,6 +8,7 @@ var connectMongo = require('./lib/connect');
 
 var express = require('express');
 var home = require('./routes/home');
+var priorities = require('./routes/priorities');
 var app = express();
 
 /* --- pipeline begins */
@@ -19,6 +20,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 
 app.get('/', d, home.index);
+app.post('/priorities', d, priorities.create);
+app.get('/priorities', d, priorities.index);
+app.get('/priorities/:id', d, priorities.show);
+app.delete('/priorities/:id', d, priorities.destroy);
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);
