@@ -11,8 +11,16 @@ function Priority(obj){
 }
 
 Priority.prototype.save = function(fn){
-  priorities.save(this, function(err, record){
-    fn(record);
+  var self = this;
+
+  Priority.findByName(this.name, function (priority){
+    if(!priority){
+      priorities.save(self, function(err, record){
+        fn(err);
+      });
+    }else{
+      fn(new Error('Duplicate Priority'));
+    }
   });
 };
 

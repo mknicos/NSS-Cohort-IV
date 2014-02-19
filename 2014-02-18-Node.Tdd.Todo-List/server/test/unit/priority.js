@@ -43,11 +43,13 @@ describe('priority', function(){
     it('should not create a priority with a name that already exists', function(done){
       var p1 = new Priority({name: 'High', value: '10'});
       var p2 = new Priority({name: 'Medium', value: '5'});
-      var p3 = new Priority({name: 'Low', value: '1'});
+      var p3 = new Priority({name: 'High', value: '1'});
 
-      p2.save(function(){
-          p3.save(function(){
-            p1.save(function(){
+      p1.save(function(){
+          p2.save(function(){
+            p3.save(function(err){
+              expect(err).to.be.instanceof(Error);
+              expect(p3._id).to.be.undefined;
             });
           });
         });
