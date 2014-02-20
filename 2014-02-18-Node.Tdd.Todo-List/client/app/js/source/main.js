@@ -11,6 +11,7 @@
     $('#pTable').on('click', '.pDelete', deleteRow);
     $('#pTable').on('click', '.popToInput', changeToInput);
     $('#confirm').click(confirmChanges);
+    $('#openpForm').click(openForm);
   }
 
   var $removedRow; // used to track row that delete button was clicked on, for deletion after succes from database res
@@ -27,6 +28,11 @@
     for(var i = 0; i < data.priorities.length; i ++){
       addPriorityToTable(data.priorities[i]);
     }
+  }
+
+  function openForm(){
+    $('#pForm').show();
+    alert('hi');
   }
 
   function savePriority(){
@@ -70,6 +76,7 @@
     }else{
       alert('priority name already exists in database, please pick a different name and try again');
     }
+    $('#pForm').hide();
 
   }
 
@@ -128,7 +135,7 @@
     }
     id = $editRow.data('id');
     
-    var url = window.location.origin.replace(/3000/, '4000') + '/priorities/' + id;
+    var url = window.location.origin.replace(/3000/, '4000') + '/priorities/';
     var obj = {name: name, value: value, _id: id};
     var type = 'PUT';
     var success = updateTable;
@@ -139,6 +146,7 @@
     console.log(data);
     $('#pTable tr').remove();
     getPriorities();
+    $('#confirm').hide();
     //var id = data._id;
     //var name = data.name;
     //var value = data.value;

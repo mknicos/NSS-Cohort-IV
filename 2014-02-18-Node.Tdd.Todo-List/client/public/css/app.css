@@ -1,5 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Nova+Square);
 body {
   background-color: #add8e6;
+}
+body,
+h1 {
+  font-family: 'Nova Square', cursive;
+}
+#spacer {
+  height: 40px;
 }
 form {
   border: 1px solid black;
@@ -14,4 +22,34 @@ form {
 }
 .editRow {
   margin: 10px;
+}
+.editRow input {
+  color: tomato;
+}
+table tr th {
+  color: grey;
+  font-size: 32px;
+}
+table tr td {
+  font-size: 26px;
+}
+table {
+  border: 1px solid black;
+  box-shadow: 5px 5px 3px 3px;
+}
+#openpForm {
+  border: 1px solid black;
+  width: 75px;
+  height: 30px;
+  text-align: center;
+  font-size: 26px;
+  background-color: lightseagreen;
+}
+#openpForm:hover {
+  box-shadow: 2px 2px 5px 5px black;
+}
+#pForm {
+  display: none;
+  border: 1px solid black;
+  box-shadow: 5px 5px 3px 3px;
 }
