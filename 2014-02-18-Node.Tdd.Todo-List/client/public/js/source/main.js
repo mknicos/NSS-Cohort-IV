@@ -10,7 +10,7 @@
     $('#pSave').click(savePriority);
     $('#pTable').on('click', '.pDelete', deleteRow);
     $('#pTable').on('click', '.popToInput', changeToInput);
-    $('#submitChanges').click(confirmChanges);
+    $('#confirm').click(confirmChanges);
   }
 
   var $removedRow; // used to track row that delete button was clicked on, for deletion after succes from database res
@@ -35,6 +35,8 @@
   //get input
     var name = $('#pNameInput').val();
     var value = $('#pValueInput').val();
+    $('#pNameInput').val('').focus();
+    $('#pValueInput').val('');
 
   // Ajax post to db
     var url = window.location.origin.replace(/3000/, '4000') + '/priorities';
@@ -85,7 +87,6 @@
   }
 
   function removeFromPriorTable(data){
-    debugger;
     if(data.count === 1){
       $removedRow.remove();
     }else{
@@ -94,8 +95,9 @@
   }
 
   function changeToInput(){
-    debugger;
-    $('#submitChanges').show();
+    // function is called when any name or number is clicked in priority table
+    // element that is clicked on is turned into a input box
+    $('#confirm').show();
     $editRow = $(this).parent().parent();
     $editRow.addClass('editRow');
     var prevText = $(this).text();
@@ -103,12 +105,16 @@
   }
 
   function confirmChanges(){
-    debugger;
+    //funciton is called when confirm button is clicked
+    //sends updated input boxes to database
+    //because user input could be on both or one table element
+    //this accounts for either an unchanged or a changed element
+    //by the user
     var nameText, nameVal, id, valueVal, valueText, name, value;
-    nameVal = $editRow.children('.columnName').val();
-    nameText = $editRow.children('.columnName').text();
-    valueVal = $editRow.children('.columnValue').val();
-    valueText = $editRow.children('.columnValue').text();
+    nameVal = $editRow.children(':first').children().val();
+    nameText = $editRow.children(':first').children().text();
+    valueVal = $editRow.children(':nth-child(2)').children().val();
+    valueText = $editRow.children(':nth-child(2)').children().text();
 
     if(nameVal){
       name = nameVal;
@@ -120,9 +126,25 @@
     }else{
       value = valueText;
     }
+    id = $editRow.data('id');
+    
+    var url = window.location.origin.replace(/3000/, '4000') + '/priorities/' + id;
+    var obj = {name: name, value: value, _id: id};
+    var type = 'PUT';
+    var success = updateTable;
+    $.ajax({url: url, type: type, data:obj, success: success});
+  }
 
-    id = $editRow.data();
-    console.log($editRow);
+  function updateTable(data){
+    console.log(data);
+    $('#pTable tr').remove();
+    getPriorities();
+    //var id = data._id;
+    //var name = data.name;
+    //var value = data.value;
+   // var row = $('tr[data-id='+id+']');
+    //row.children(':first').children().replaceWith('<div text="'+name+'">');
+    //row.children(':nth-child(2)').children().replaceWith('<div>').text(value);
   }
 
 })();

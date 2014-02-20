@@ -9,7 +9,7 @@ form {
   width: 20px;
   height: 20px;
 }
-#submitChanges {
+#confirm {
   display: none;
 }
 .editRow {
