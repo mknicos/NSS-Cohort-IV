@@ -10,6 +10,7 @@
     $('#pSave').click(savePriority);
     $('#pTable').on('click', '.pDelete', deleteRow);
     $('#pTable').on('click', '.popToInput', changeToInput);
+    $('#submitChanges').click(confirmChanges);
   }
 
   var $removedRow; // used to track row that delete button was clicked on, for deletion after succes from database res
@@ -96,9 +97,32 @@
     debugger;
     $('#submitChanges').show();
     $editRow = $(this).parent().parent();
+    $editRow.addClass('editRow');
     var prevText = $(this).text();
     $(this).replaceWith('<input type="text" value="'+prevText+'">');
+  }
 
+  function confirmChanges(){
+    debugger;
+    var nameText, nameVal, id, valueVal, valueText, name, value;
+    nameVal = $editRow.children('.columnName').val();
+    nameText = $editRow.children('.columnName').text();
+    valueVal = $editRow.children('.columnValue').val();
+    valueText = $editRow.children('.columnValue').text();
+
+    if(nameVal){
+      name = nameVal;
+    }else{
+      name = nameText;
+    }
+    if(valueVal){
+      value = valueVal;
+    }else{
+      value = valueText;
+    }
+
+    id = $editRow.data();
+    console.log($editRow);
   }
 
 })();
