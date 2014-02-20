@@ -32,7 +32,6 @@
 
   function openForm(){
     $('#pForm').show();
-    alert('hi');
   }
 
   function savePriority(){

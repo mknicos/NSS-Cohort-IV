@@ -98,7 +98,7 @@ describe('priorities', function(){
     });
   });
 
-  describe('PUT /priorities/3', function(){
+  describe('PUT /priorities', function(){
     it('should update a specific priority in the database', function(done){
       Priority.findByName('Medium', function(priority){
         var id = priority._id.toString();
@@ -107,11 +107,9 @@ describe('priorities', function(){
         priority.value = '7';
 
         request(app)
-        .put('/priorities/' + id)
+        .put('/priorities')
         .send(priority)
         .end(function(err, res){
-          expect(res.body.name).to.equal('Above Average');
-          expect(res.body.value).to.deep.equal(7);
           expect(res.body._id).to.equal(id);
           done();
         });
