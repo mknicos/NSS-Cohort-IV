@@ -1,4 +1,4 @@
-/* jshint unused:false */
+/*jshint unused:false */
 'use strict';
 
 module.exports = Priority;
@@ -49,8 +49,9 @@ Priority.findByID = function(ID,fn){
   });
 };
 
-Priority.deleteByID = function(ID, fn){
-  priorities.remove({_id:ID}, function(err, record){
-    fn(record);
+Priority.deleteByID = function(id, fn){
+  var _id = Mongo.ObjectID(id);
+  priorities.remove({_id:_id}, function(err, count){
+    fn(count);
   });
 };

@@ -1,4 +1,6 @@
 /* jshint expr:true */
+/* globals before, beforeEach : true */
+
 'use strict';
 var expect = require('chai').expect;
 var Priority;
@@ -30,7 +32,7 @@ describe('Priority', function(){
       expect(p1).to.have.property('name').and.equal('High');
       expect(p1).to.have.property('value').and.deep.equal(10);
     });
- });
+  });
 
   describe('#save', function(){
     it('should save a Priority object into the database', function(done){
@@ -140,19 +142,26 @@ describe('Priority', function(){
   });
 
   describe('.deleteByID', function(){
-    it('should delete a Priority from the db by ID', function(done){
+    it('should delete the priority by its id from the datbase', function(done){
       var p1 = new Priority({name:'High', value:'10'});
+      var p2 = new Priority({name:'Medium', value:'5'});
+      var p3 = new Priority({name:'Low', value:'1'});
+
       p1.save(function(){
-        Priority.deleteByID(p1._id, function(record){
-          Priority.findAll(function(priorities){
-            expect(priorities).to.have.length(0);
-            expect(record).to.equal(1);
-            done();
+        p2.save(function(){
+          var id = p2._id.toString();
+          p3.save(function(){
+            Priority.deleteByID(id, function(numberRemoved){
+              Priority.findByID(id, function(foundPriority){
+                expect(numberRemoved).to.equal(1);
+                expect(foundPriority).to.be.null;
+                done();
+              });
+            });
           });
         });
       });
     });
   });
-
 
 });

@@ -1,10 +1,12 @@
+/* jshint expr: true */
+/* globals before, beforeEach, afterEach : true */
+
 'use strict';
 
 process.env.DBNAME = 'todo-test';
 var app = require('../../app/app');
 var request = require('supertest');
 var expect = require('chai').expect;
-var Mongo = require('mongodb');
 var Priority;
 
 describe('priorities', function(){
@@ -81,15 +83,36 @@ describe('priorities', function(){
     });
   });
 
-  describe('DELETE /priorities/:id', function(){
-    it('should delete the specified priority from the database', function(done){
-      Priority.findByName('High', function(priority){
+  describe('DELETE /priorities/3', function(){
+    it('should delete a specific priority from the database', function(done){
+      Priority.findByName('Medium', function(priority){
         var id = priority._id.toString();
+
         request(app)
-        .del('/priorities/'+id)
-        .end(function(err,res){
-          debugger;
-          expect(res.body.record).to.equal(1);
+        .del('/priorities/' + id)
+        .end(function(err, res){
+          expect(res.body.count).to.equal(1);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('PUT /priorities/3', function(){
+    it('should update a specific priority in the database', function(done){
+      Priority.findByName('Medium', function(priority){
+        var id = priority._id.toString();
+
+        priority.name = 'Above Average';
+        priority.value = '7';
+
+        request(app)
+        .put('/priorities/' + id)
+        .send(priority)
+        .end(function(err, res){
+          expect(res.body.name).to.equal('Above Average');
+          expect(res.body.value).to.deep.equal(7);
+          expect(res.body._id).to.equal(id);
           done();
         });
       });

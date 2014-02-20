@@ -27,10 +27,19 @@ exports.show = function(req, res){
   });
 };
 
+exports.update = function(req, res){
+  Priority = global.nss.Priority;
+
+  var priority = new Priority(req.body);
+  priority.save(function(){
+    res.send(priority);
+  });
+};
+
 exports.destroy = function(req, res){
   Priority = global.nss.Priority;
 
-  Priority.deleteByID(req.params.id, function(record){
-    res.send({record:record});
+  Priority.deleteByID(req.params.id, function(count){
+    res.send({count:count});
   });
 };
