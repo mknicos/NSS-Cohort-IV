@@ -1,0 +1,12 @@
+body {
+  background-color: #add8e6;
+}
+form {
+  border: 1px solid black;
+}
+.pDelete {
+  width: 5px;
+  height: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
