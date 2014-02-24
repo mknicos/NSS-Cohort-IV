@@ -110,7 +110,7 @@ describe('priorities', function(){
         .put('/priorities')
         .send(priority)
         .end(function(err, res){
-          console.log(res.body);
+          console.log(res.bodyt)
           expect(res.body._id).to.equal(id);
           done();
         });

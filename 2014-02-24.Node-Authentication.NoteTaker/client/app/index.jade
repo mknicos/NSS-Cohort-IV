@@ -1,0 +1,41 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Notes
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    #heading
+      h1 Notes
+    .row
+      #spacer
+    .row
+      .small-4.columns
+      .small-4.columns
+        button#showLogin Register/Login
+      .small-4.columns
+    .row
+      .small-4.columns
+      .small-4.columns
+        #formWrapper
+          form#user
+            label E-mail
+            input#email(type='text', autofocus, placeholder='User@gmail.com', name='email')
+            label Password
+            input#password(type='password', name='password', placeholder='********')
+            button#register Register
+            button#login Login
+      .small-4.columns
+
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='/js/source/main.js')
+
