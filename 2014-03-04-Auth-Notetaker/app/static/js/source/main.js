@@ -6,31 +6,17 @@
 
   function initialize(){
     $(document).foundation();
-    //loadAlbums();
-  }
-/*
-  function loadAlbums(){
-    var url = '/albums';
-    $.getJSON(url, refine);
+    $('#newUserButton').click(displayRegister);
+    $('#loginButton').click(displayLogin);
   }
 
-  function refine(albums){
-    for (var i = 0; i < albums.albums.length; i++){
-      populateAlbums(albums.albums[i]);
-    }
+  function displayRegister(){
+    $('#registerForm').toggle();
   }
 
-  function populateAlbums(album){
-    debugger;
-    console.log(album);
-    var $img = $('<div>');
-    $img.addClass('thumbnail');
-    $img.attr('data-id', album._id);
-    $img.attr('data-taken', album.taken);
-    $img.css('background-image', 'url('+album.cover.slice(65)+')');
-    $img.text(album.title);
-    $('#albums').prepend($img);
+  function displayLogin(){
+    $('#loginForm').toggle();
   }
-*/
+
 })();
 

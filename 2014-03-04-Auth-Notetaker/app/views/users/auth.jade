@@ -19,18 +19,22 @@ html(class='no-js', lang='en')
         button#loginButton Login
     .row
       .small-4.columns
-        form
+        form#registerForm(action='/register', method='post', enctype='multipart/form-data')
+          h3 Register
           label Email
-            input#newEmail(type='text', name='email', required)
+          input#newEmail(type='email', name='email', required)
           label Password
-            input#newPassword(type='password', name='password', required)
+          input#newPassword(type='password', name='password', required)
+          button Register
     .row
       .small-4.columns
-        form
+        form#loginForm(action='/login', method='post', enctype='multipart/form-data')
+          h3 Login
           label Email
-          input#loginEmail(type='text', name='email', required)
+          input#loginEmail(type='email', name='email', required)
           label Password
           input#loginPassword(type='password', name='password', required)
+          button Login
 
 
 
