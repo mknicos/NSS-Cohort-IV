@@ -11,6 +11,10 @@ h1, h2, h3, h4, h5{
   color: @color4;
 }
 
+.side-nav{
+  position: fixed;
+}
+
 .fillOut{
   background-color: @color3;
   padding: 15px;
@@ -39,14 +43,22 @@ a{
   height: 200px;
 }
 
+#createNote{
+  background-color: lighten(@color1, 20%);
+  border-radius: 15px;
+  border: 2px solid @color4;
+  color: @color2;
+}
+
 .oneNote{
-  height: 100px;
+  height: 200px;
+  display: inline-block;
   width: 200px;
   background-color: @color2;
   border: 3px solid @color4;
-  border-radius: 30px;
+  border-radius: 100px;
   text-align: center;
-  padding: 10px;
+  padding-top: 40px;
   margin: 15px;
 }
 
