@@ -15,6 +15,10 @@ h1, h2, h3, h4, h5{
   position: fixed;
 }
 
+.spacer{
+  height: 50px;
+}
+
 .fillOut{
   background-color: @color3;
   padding: 15px;
@@ -36,11 +40,13 @@ a{
 
 #textAreaWrapper{
   margin: auto;
+  text-align: center;
 }
 
 #textAreaWrapper textarea{
   width: 500px;
   height: 200px;
+
 }
 
 #createNote{
@@ -48,6 +54,10 @@ a{
   border-radius: 15px;
   border: 2px solid @color4;
   color: @color2;
+}
+
+#createNote:hover{
+  box-shadow: 0px 0px 2px 2px;
 }
 
 .oneNote{
@@ -68,11 +78,35 @@ a{
 }
 
 #noteWrapper{
-  width: 75%;
+  width: 90%;
   padding: 25px;
+  text-align: center;
 }
 
 
 #noteBody, .noteTags{
   color: @color2;
+}
+
+.noteTag{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.noteDate{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.titleWrapper{
+  text-align: center;
+  width: 90%;
+}
+
+.titleWrapper2{
+  text-align: center;
+}
+
+#newNoteWrapper{
+  text-align: center;
 }

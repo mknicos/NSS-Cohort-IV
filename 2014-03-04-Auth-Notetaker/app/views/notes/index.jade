@@ -1,7 +1,10 @@
 extends ../shared/template
 
 block content
-  h5 DISPLAY ALL NOTES
+  .row
+    .small-12.columns
+      .titleWrapper
+        h3 Your Notes
 
   .row
     .small-12.columns
@@ -9,8 +12,8 @@ block content
         each note in notes
           .oneNote
             a(href='notes/'+note._id.toString()).noteTitle= note.title
+            .noteDate= note.dateCreated.toDateString()
             .noteTag= note.tags
-            .noteDate= note.dateCreated
 
 
 

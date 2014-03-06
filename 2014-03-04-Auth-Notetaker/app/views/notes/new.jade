@@ -1,22 +1,26 @@
 extends ../shared/template
 
 block content
-  h5 CREATE A NEW NOTE
+  .titleWrapper2
+    h5 CREATE A NEW NOTE
 
   .row
-    .small-4.columns#log
-      form#newNote.fillOut(action='/notes', method='post')
-        label Title
-        input(type='text', name='title', required)
-        label Date Created
-        input(type='date', name='dateCreated', required)
-        label Tags
-        input(type='text', name='tags', required)
-        button#createNote Create Note
+    .small-4.small-centered.columns
+      #newNoteWrapper
+        form#newNote.fillOut(action='/notes', method='post')
+          label Title
+          input(type='text', name='title', required)
+          label Date Created
+          input(type='date', name='dateCreated', required)
+          label Tags
+          input(type='text', name='tags', required)
+          button#createNote Create Note
         
-
   .row
-    .small-8.columns
+    .small-12.columns
+      .spacer
+  .row
+    .small-6.small-centered.columns
       #textAreaWrapper
         h4 Enter Note Here
         textarea(placeholder='I need to finish this project', rows='15', cols='500', form='newNote', name='body', required)
