@@ -12,7 +12,7 @@ block content
           button.showRegister#regButton Register
     .row
       .small-10.columns#log.hide
-        form(action='/login', method='post', enctype='multipart/form-data')
+        form.fillOut(action='/login', method='post', enctype='multipart/form-data')
           fieldset
             label Email
             input(type='email', name='email', required)
@@ -24,7 +24,7 @@ block content
                 button.tiny.radius.expand Login
     .row
       .small-10.columns#reg.hide
-        form(action='/register', method='post', enctype='multipart/form-data')
+        form.fillOut(action='/register', method='post', enctype='multipart/form-data')
           fieldset
             label Email
             input(type='email', name='email', required)
