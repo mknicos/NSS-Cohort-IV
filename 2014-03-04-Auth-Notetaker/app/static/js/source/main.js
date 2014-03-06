@@ -6,17 +6,21 @@
 
   function initialize(){
     $(document).foundation();
-    $('#newUserButton').click(displayRegister);
-    $('#loginButton').click(displayLogin);
+    $('.showLogin').click(showLogin);
+    $('.showRegister').click(showRegister);
+
   }
 
-  function displayRegister(){
-    $('#registerForm').toggle();
+  function showLogin(){
+    $('#log').fadeIn(800);
+    $('#reg').hide();
+    $('#log').removeClass('hide');
   }
 
-  function displayLogin(){
-    $('#loginForm').toggle();
+  function showRegister(){
+    $('#reg').fadeIn(800);
+    $('#log').hide();
+    $('#reg').removeClass('hide');
   }
-
 })();
 

@@ -1,41 +1,39 @@
-doctype html
-//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
-html(class='no-js', lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title=title
-    link(rel='stylesheet', href='/css/normalize.css')
-    link(rel='stylesheet', href='/css/foundation.css')
-    link(rel='stylesheet', href='/less/app.css')
-    script(src='/js/vendor/modernizr.js')
-  body
-    .row
-      .small-12.columns
-        h1=title
-    .row
-      .small-12.columns
-        button#newUserButton New User
-        button#loginButton Login
-    .row
-      .small-4.columns
-        form#registerForm(action='/register', method='post', enctype='multipart/form-data')
-          h3 Register
-          label Email
-          input#newEmail(type='email', name='email', required)
-          label Password
-          input#newPassword(type='password', name='password', required)
-          button Register
-    .row
-      .small-4.columns
-        form#loginForm(action='/login', method='post', enctype='multipart/form-data')
-          h3 Login
-          label Email
-          input#loginEmail(type='email', name='email', required)
-          label Password
-          input#loginPassword(type='password', name='password', required)
-          button Login
+extends ../shared/template
 
+block content
+    .row 
+      .small-12.small-centered.columns
+        h1=title
+    .row#wrapper
+      .small-2.columns
+         button.showLogin#logButton Login
+        .small-8.columns
+        .small-2.columns
+          button.showRegister#regButton Register
+    .row
+      .small-10.columns#log.hide
+        form(action='/login', method='post', enctype='multipart/form-data')
+          fieldset
+            label Email
+            input(type='email', name='email', required)
+            label Password
+            input(type='password', name='password', required)
+            .row
+              .small-12.columns#login
+                label &nbsp
+                button.tiny.radius.expand Login
+    .row
+      .small-10.columns#reg.hide
+        form(action='/register', method='post', enctype='multipart/form-data')
+          fieldset
+            label Email
+            input(type='email', name='email', required)
+            label Password
+            input(type='password', name='password', required)
+            .row
+              .small-12.columns#register
+                label &nbsp
+                button.tiny.radius.expand  Register
 
 
 

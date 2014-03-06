@@ -23,7 +23,7 @@ User.prototype.insert = function(fn){
   users.findOne({email: self.email}, function(err, record){
     if(!record){
       users.insert(self, function(err, records){
-        fn(records[0]);
+        fn(records);
       });
     }else{
       fn(null);

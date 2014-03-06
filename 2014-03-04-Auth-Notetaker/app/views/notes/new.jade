@@ -1,0 +1,25 @@
+extends ../shared/template
+
+block content
+  h5 CREATE A NEW NOTE
+
+  .row
+    .small-4.columns#log
+      form#newNote.fillOut(action='/notes', method='post')
+        label Title
+        input(type='text', name='title', required)
+        label Date Created
+        input(type='date', name='dateCreated', required)
+        label Tags
+        input(type='text', name='tags', required)
+        button Create Note
+        
+
+  .row
+    .small-8.columns
+      #textAreaWrapper
+        h4 Enter Note Here
+        textarea(placeholder='I need to finish this project', rows='15', cols='500', form='newNote', name='body', required)
+
+
+

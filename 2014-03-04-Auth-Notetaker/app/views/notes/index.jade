@@ -1,0 +1,17 @@
+extends ../shared/template
+
+block content
+  h5 DISPLAY ALL NOTES
+
+  .row
+    .small-12.columns
+      #noteWrapper
+        each note in notes
+          .oneNote
+            a(href='notes/'+note._id.toString()).noteTitle= note.title
+            .noteTag= note.tags
+            .noteDate= note.dateCreated
+
+
+
+

@@ -20,6 +20,11 @@ exports.register = function(req, res){
   });
 };
 
+exports.logout = function(req, res){
+  req.session.destroy(function(){
+    res.redirect('/auth');
+  });
+};
 
 exports.login = function(req, res){
   User.findByEmailAndPassword(req.body.email, req.body.password, function(user){

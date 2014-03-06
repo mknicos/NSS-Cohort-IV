@@ -1,18 +1,66 @@
-//CSS FILE
-
-button{
-  margin: 25px;
-}
+@color1: #221E1D;
+@color2: #ECEAE0;
+@color3: #63AA9C;
+@color4: #E9633B;
 
 body{
-  background-image: url('/img/crumbled.jpg');
-  background-size: cover;
+  background-color: @color1;
 }
 
-#registerForm{
-  display: none;
+h1, h2, h3, h4, h5{
+  color: @color4;
 }
 
-#loginForm{
-  display: none;
+.fillOut{
+  background-color: @color3;
+  padding: 15px;
+}
+
+#regButton, #logButton{
+  background-color: @color2;
+  color: @color3;
+  border-radius: 20px;
+}
+
+#logOutButton{
+  background-color: @color3;
+}
+
+a{
+  color: @color3;
+}
+
+#textAreaWrapper{
+  margin: auto;
+}
+
+#textAreaWrapper textarea{
+  width: 500px;
+  height: 200px;
+}
+
+.oneNote{
+  height: 100px;
+  width: 200px;
+  background-color: @color2;
+  border: 3px solid @color4;
+  border-radius: 30px;
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+}
+
+.noteTitle{
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+#noteWrapper{
+  width: 75%;
+  padding: 25px;
+}
+
+
+#noteBody, .noteTags{
+  color: @color2;
 }
